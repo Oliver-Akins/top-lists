@@ -1,0 +1,20 @@
+<div class="track">
+	<div class="cover center">
+		<a :href="track.album.link" target="_blank" rel="noopener">
+			<img :src="track.album.image.url" :alt="track.album.name + ' Cover Image'" class="cover">
+		</a>
+	</div>
+	<div class="info">
+		<span class="name remote" v-if="!track.locality">
+			<a :href="track.link" target="_blank" rel="noopener">{{track.name}}</a>
+		</span>
+		<span class="name local" v-else>
+			{{track.name}}
+		</span>
+		<br>
+		<span class="artist" v-html="artists"></span>
+		<br>
+	</div>
+	<div class="popularity" v-tooltip="popularity_tooltip">{{track.popularity}}</div>
+	<div class="duration">{{duration}}</div>
+</div>
