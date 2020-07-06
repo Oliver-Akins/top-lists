@@ -2,13 +2,15 @@ Vue.component(
 	`artist`,
 	{
 		props: [ `artist` ],
-		data: function () {
-			return {};
-		},
 		computed: {},
 		template: `<div class="artist">
-	<div class="image profile_pic">
-		<img :src="artist.image.url" :alt="artist.name + \`'s profile picture\`">
+	<div class="image profile_pic" v-if="artist.image">
+		<img :src="artist.image.url" :alt="artist.name + 's profile picture'">
+	</div>
+	<div class="image profile_pic" v-else>
+		<div class="missing-circle">
+			<music-note colour="#1DB954"></music-note>
+		</div>
 	</div>
 	<div class="info">
 		<span class="name">
@@ -20,5 +22,5 @@ Vue.component(
 	<div class="popularity">{{artist.popularity}}</div>
 	<div class="followers">{{artist.follower_count}}</div>
 </div>`
-	}
+}
 )

@@ -4,7 +4,7 @@ Vue.component(
 		props: [ `track` ],
 		data: function () {
 			return {
-				popularity_tooltip: `Popularity.\nClick for more information.`
+				popularity_tooltip: `Popularity`
 			}
 		},
 		template: `<div class="track">

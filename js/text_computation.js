@@ -13,7 +13,7 @@ function get_button_text () {
 	else if (this.count > 50) {
 		this.error.main = `Cannot get more than 50 ${this.type.toLowerCase()}`;
 		return false;
-	}
+	};
 	this.error.main = ``;
 	return this.type;
 };

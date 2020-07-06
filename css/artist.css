@@ -17,10 +17,23 @@ div.artist {
 div.artist > div.profile_pic {
 	text-align: center;
 }
-div.artist > div.profile_pic img {
+div.artist > div.profile_pic img  {
 	width: 200px;
 	height: 200px;
 }
+
+div.artist > div.profile_pic > div.missing-circle {
+	background-color: #3a3a3aaa;
+	border-radius: 100px;
+	display: flex;
+	height: 200px;
+	width: 200px;
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto;
+	margin-bottom: 5px;
+}
+
 
 div.artist > div.info {
 	margin: 0;
