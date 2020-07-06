@@ -1,0 +1,84 @@
+div.track {
+	background-color: var(--card-colour);
+	color: var(--card-text);
+	border-radius: 7px;
+	border-style: none;
+	padding: 10px;
+	padding-top: 20px;
+	margin: 5px auto;
+	width: 90%;
+	position: relative;
+
+	display: flex;
+	flex-direction: column;
+}
+
+
+div.track > div.cover {
+	text-align: center;
+}
+div.track > div.cover img {
+	width: 200px;
+	height: 200px;
+}
+
+div.track > div.info {
+	margin: 0;
+	text-align: center;
+	position: relative;
+	padding-bottom: 20px;
+}
+
+div.track > div.info > span.name {
+	text-decoration: none;
+	color: var(--text-on-card);
+	vertical-align: middle;
+	font-size: larger;
+}
+
+div.track > .duration {
+	background-color: var(--on-card-colour);
+	color: var(--on-card-text);
+	vertical-align: middle;
+	position: absolute;
+	padding: 1px 6px;
+	bottom: 0px;
+	right: 0px;
+
+	/* top-left top-right lower-right lower-left */
+	border-radius: 7px 0 7px 0;
+}
+
+div.track > div.info > span.artist {
+	font-size: smaller;
+}
+
+
+div.track > .popularity {
+	background-color: var(--on-card-colour);
+	color: var(--on-card-text);
+	position: absolute;
+	padding: 1px 6px;
+	bottom: 0px;
+	left: 0px;
+
+	/* top-left top-right lower-right lower-left */
+	border-radius: 0px 7px 0px 7px;
+}
+
+div.track a {
+	color: var(--text-on-card);
+	text-decoration: none;
+}
+div.track a:hover {
+	text-decoration: underline;
+}
+
+
+/* DESKTOP STYLES */
+@media only screen and (min-width: 768px) {
+	div.track {
+		width: 230px;
+		margin: 5px;
+	}
+}
