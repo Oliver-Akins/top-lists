@@ -1,0 +1,84 @@
+div.card {
+	/* Card only variables */
+	--border-radius: 5px;
+
+	background-color: var(--card-colour);
+	color: var(--card-text);
+	border-radius: var(--border-radius);
+	border-style: none;
+	padding: 10px;
+	padding-top: 20px;
+	margin: 5px auto;
+	width: 90%;
+	position: relative;
+
+	display: flex;
+	flex-direction: column;
+}
+
+
+div.card > div.image {
+	text-align: center;
+}
+div.card > div.image img {
+	--size: 200px;
+	width: var(--size);
+	height: var(--size);
+}
+
+div.card div.missing-image {
+	background-color: #3a3a3aaa;
+	justify-content: center;
+	border-radius: 100px;
+	align-items: center;
+	margin-bottom: 5px;
+	margin: 0 auto;
+	display: flex;
+	height: 200px;
+	width: 200px;
+}
+
+
+div.card > div.info {
+	text-align: center;
+	padding-bottom: 20px;
+	margin: 0;
+}
+div.card > div.info > .title { font-size: larger; }
+div.card > div.info > .subtitle { font-size: smaller; }
+
+/* Positioning For Absolute Elements */
+div.card .corner {
+	position: absolute;
+	padding: 1px 6px;
+	background-color: var(--on-card-colour);
+	color: var(--on-card-text);
+}
+div.card .right { right: 0; }
+div.card .left { left: 0; }
+div.card .top { top: 0; }
+div.card .bottom { bottom: 0; }
+
+
+/* border-radius: top-left top-right lower-right lower-left */
+div.card .popularity { border-radius: 0 var(--border-radius) 0 var(--border-radius); }
+div.card .followers,
+div.card .duration { border-radius: var(--border-radius) 0 var(--border-radius) 0; }
+
+
+div.card a {
+	color: var(--text-on-card);
+	text-decoration: none;
+}
+div.card a:hover {
+	text-decoration: underline;
+}
+
+
+/* DESKTOP STYLES */
+@media only screen and (min-width: 768px) {
+	div.card {
+		width: 230px;
+		margin: 5px;
+	}
+}
