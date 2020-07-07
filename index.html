@@ -59,7 +59,7 @@
 				<input type="number" v-model="count" placeholder="How Many?">
 			</div>
 			<div id="submit-button" v-if="button_type && duration">
-				<button @click="get_data()">Get Top {{count > 1 ? count : ``}} {{button_type}}</button>
+				<button @click="get_data()">Get Top {{count > 1 ? count : `10`}} {{button_type}}</button>
 			</div>
 		</div>
 		<div class="flex-row error" v-if="error.main">{{error.main}}</div>
