@@ -49,10 +49,8 @@ select {
 	font-family: var(--fonts);
 	outline: none;
 }
-
-select:focus {
-	border-style: none;
-}
+select:hover { cursor: pointer; }
+select:focus { border-style: none; }
 
 button {
 	padding: 10px 20px;
@@ -63,6 +61,7 @@ button {
 	font-family: var(--fonts);
 	outline: none;
 }
+button:hover { cursor: pointer; }
 
 input[type=number] {
 	background-color: var(--spotify-black);
