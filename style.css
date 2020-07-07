@@ -168,7 +168,7 @@ div.login > div {
 /* Tooltip Styling */
 .tooltip {
 	display: none !important;
-	z-index: 10000;
+	z-index: 2;
 }
 
 .tooltip .tooltip-inner {
