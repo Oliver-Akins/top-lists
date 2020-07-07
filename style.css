@@ -140,7 +140,7 @@ div.body {
 	border-width: 2px;
 }
 
-.card {
+div.login > div {
 	display: inline-block;
 	color: var(--card-text);
 	padding: 20px;
@@ -286,8 +286,5 @@ div.body {
 	.flex-row {
 		flex-direction: row;
 		flex-wrap: wrap;
-	}
-	.card {
-		width: 33%;
 	}
 }
