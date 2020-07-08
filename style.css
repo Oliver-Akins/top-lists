@@ -17,6 +17,10 @@
 	--on-card-colour: #4c4c4c;
 	--on-card-text: var(--spotify-green);
 
+	--modal-container-background: #0e0f10eb;
+	--modal-background: var(--card-colour);
+	--modal-text: var(--card-text);
+
 	--fonts: 'Open Sans', sans-serif;
 }
 
@@ -139,7 +143,7 @@ div.body {
 	border-width: 2px;
 }
 
-div.login > div {
+div#login > div {
 	display: inline-block;
 	color: var(--card-text);
 	padding: 20px;
@@ -285,5 +289,8 @@ div.login > div {
 	.flex-row {
 		flex-direction: row;
 		flex-wrap: wrap;
+	}
+	div#login > div {
+		width: 33%;
 	}
 }

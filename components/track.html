@@ -17,6 +17,6 @@
 		<br>
 		<span class="subtitle" v-html="artists"></span>
 	</div>
-	<div class="popularity bottom left corner" v-tooltip="popularity_tooltip">{{track.popularity}}</div>
+	<div class="popularity bottom left corner" v-tooltip="popularity_tooltip" @click.self="show_popularity_modal()">{{track.popularity}}</div>
 	<div class="duration bottom right corner">{{duration}}</div>
 </div>

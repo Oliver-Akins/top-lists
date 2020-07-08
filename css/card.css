@@ -61,7 +61,10 @@ div.card .bottom { bottom: 0; }
 
 
 /* border-radius: top-left top-right lower-right lower-left */
-div.card .popularity { border-radius: 0 var(--border-radius) 0 var(--border-radius); }
+div.card .popularity {
+	border-radius: 0 var(--border-radius) 0 var(--border-radius);
+	cursor: pointer;
+}
 div.card .followers,
 div.card .duration { border-radius: var(--border-radius) 0 var(--border-radius) 0; }
 

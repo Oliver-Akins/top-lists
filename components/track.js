@@ -39,6 +39,11 @@ Vue.component(
 				return artists.join(`, `)
 			},
 		},
+		methods: {
+			show_popularity_modal: function () {
+				this.$emit('popularity_click')
+			}
+		},
 		template: `<div class="card">
 	<div class="image">
 		<a v-if="track.album.image.url"  :href="track.album.link" target="_blank" rel="noopener">
@@ -58,7 +63,7 @@ Vue.component(
 		<br>
 		<span class="subtitle" v-html="artists"></span>
 	</div>
-	<div class="popularity bottom left corner" v-tooltip="popularity_tooltip">{{track.popularity}}</div>
+	<div class="popularity bottom left corner" v-tooltip="popularity_tooltip" @click.self="show_popularity_modal()">{{track.popularity}}</div>
 	<div class="duration bottom right corner">{{duration}}</div>
 </div>`
 	}
