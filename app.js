@@ -8,7 +8,14 @@ let app = new Vue({
 		show: {
 			popularity_popup: false,
 			popularity_hover: false,
-			follower_hover: false
+			follower_hover: false,
+			modal_content: false,
+			modal: {
+				popularity: false,
+				track: false,
+				artist: false,
+				playlist_export: false,
+			}
 		},
 		error: {
 			main: ``,
@@ -67,5 +74,11 @@ let app = new Vue({
 			})
 		},
 		get_data: fetch_data,
+		hide_modal: function () {
+			this.show.modal.popularity = false;
+			this.show.modal.track = false;
+			this.show.modal.artist = false;
+			this.show.modal.playlist_export = false;
+		}
 	}
 })
