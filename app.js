@@ -29,7 +29,7 @@ let app = new Vue({
 			scopes: [
 				`user-top-read`
 			],
-			show_dialog: true,
+			show_dialog: false,
 			use_state: false
 		},
 		user: {
