@@ -1,4 +1,4 @@
-let app = new Vue({
+var vue_config = {
 	el: `#app`,
 	data: {
 		api_base: `https://api.spotify.com/v1`,
@@ -81,4 +81,4 @@ let app = new Vue({
 			this.show.modal.playlist_export = false;
 		}
 	}
-})
+};
