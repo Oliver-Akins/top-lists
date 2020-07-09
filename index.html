@@ -21,7 +21,7 @@
 	<script src="https://unpkg.com/v-tooltip"></script>
 	<script src="./js/text_computation.js"></script>
 	<script src="./js/prototypes.js" async></script>
-	<script src="./app.js" defer></script>
+	<script src="./js/dev/data.js" async></script>
 	<script src="./js/auth.js"></script>
 	<script src="./js/data.js"></script>
 </head>
@@ -110,5 +110,10 @@
 		</transition>
 	</div>
 </div>
+<script src="./app.js"></script>
+<script src="./js/dev/app_modifications.js"></script>
+<script>
+	let app = new Vue(vue_config)
+</script>
 </body>
 </html>

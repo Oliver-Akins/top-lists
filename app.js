@@ -1,4 +1,4 @@
-let app = new Vue({
+var vue_config = {
 	el: `#app`,
 	data: {
 		api_base: `https://api.spotify.com/v1`,
@@ -29,8 +29,8 @@ let app = new Vue({
 			scopes: [
 				`user-top-read`
 			],
-			show_dialog: true,
-			use_state: false
+			show_dialog: false,
+			use_state: true
 		},
 		user: {
 			name: ``,
@@ -81,4 +81,4 @@ let app = new Vue({
 			this.show.modal.playlist_export = false;
 		}
 	}
-})
+};
