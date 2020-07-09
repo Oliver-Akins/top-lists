@@ -24,13 +24,13 @@ var vue_config = {
 		auth: {
 			alert: `We will only be able to access your top tracks and artists, nothing else. This is also only done on your browser. Our servers do not see any of the data from your account.`,
 			base_url: `https://accounts.spotify.com/authorize`,
-			redirect: `http://localhost:5000`,
+			redirect: `http://tyler.akins.me/top-lists`,
 			client_id: `3a1795e9d55445b0aa0c05dd74c866fb`,
 			scopes: [
 				`user-top-read`
 			],
 			show_dialog: false,
-			use_state: true
+			use_state: false
 		},
 		user: {
 			name: ``,
