@@ -79,7 +79,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #control {
 	border-radius: var(--corner-rounding);
 	background-color: var(--card-colour);
