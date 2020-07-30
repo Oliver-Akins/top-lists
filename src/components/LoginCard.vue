@@ -1,0 +1,80 @@
+<template>
+	<div id="login_screen" class="maximize_size">
+		<div class="card">
+			<a :href="spotify_auth_url">
+				<button>Login With Spotify</button>
+			</a>
+			<p> {{ alert }} </p>
+		</div>
+	</div>
+</template>
+
+<script>
+export default {
+	name: 'LoginCard',
+	data() { return {
+		alert: `We will only be able to access your top tracks and artists, nothing else. This is also only done on your browser. Our servers do not see any of the data from your account.`,
+		auth_base: `https://accounts.spotify.com/authorize`,
+		use_state: process.env.NODE_ENV === `production`,
+		redirect: process.env.NODE_ENV === `production` ? `https://oliver.akins.me/top-lists` : `http://localhost:8080`,
+		client_id: `3a1795e9d55445b0aa0c05dd74c866fb`,
+		scopes: [ `user-top-read` ],
+		show_dialog: process.env.NODE_ENV !== `production`,
+	}},
+	computed: {
+		spotify_auth_url() {
+			let params = [
+				`client_id=${this.client_id}`,
+				`response_type=token`,
+				`redirect_uri=${encodeURIComponent(this.redirect)}`,
+				`scope=${encodeURIComponent(this.scopes.join(" "))}`,
+				`show_dialog=${this.show_dialog}`
+			];
+
+			// Create the state data if we are using it
+			if (this.use_state) {
+				let state = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+				params.push(`state=${state}`);
+				localStorage.setItem(`top-spotify-state`, state);
+			}
+
+			return `${this.auth_base}?${params.join("&")}`;
+		}
+	}
+}
+</script>
+
+<style scoped>
+#login_screen {
+	font-family: var(--fonts);
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	height: 100%;
+	width: 100%;
+}
+
+.card {
+	border-radius: var(--corner-rounding);
+	background-color: var(--card-colour);
+	color: var(--spotify-green);
+	text-align: center;
+	padding: 30px;
+	width: 33%;
+}
+
+button {
+	background-color: var(--spotify-green);
+	font-family: var(--fonts);
+	border-radius: 50px;
+	padding: 10px 20px;
+	border-style: none;
+	font-size: larger;
+	outline: none;
+}
+
+p {
+	margin-bottom: 0px;
+	margin-top: 15px;
+}
+</style>
