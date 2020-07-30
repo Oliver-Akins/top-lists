@@ -1,0 +1,30 @@
+:root {
+	--spotify-green: #1DB954;
+	--spotify-white: #FFFFFF;
+	--spotify-black: #000000;
+
+	--accent1: #7289da;
+	--accent2: #00aa00;
+
+	--error: #ff0000;
+
+	--background: #23272A;
+	--background-text: var(--spotify-white);
+
+	--card-colour: #2C2F33;
+	--card-text: #ffffff80;
+
+	--on-card-colour: #4c4c4c;
+	--on-card-text: var(--spotify-green);
+
+	--modal-container-background: #0e0f10eb;
+	--modal-background: var(--card-colour);
+	--modal-text: var(--card-text);
+
+	--fonts: 'Open Sans', sans-serif;
+
+	--corner-rounding: 7px;
+
+	--select-background: var(--spotify-black);
+	--select-text: var(--spotify-green);
+}
