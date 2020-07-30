@@ -1,0 +1,84 @@
+<template>
+	<div class="maximize_size">
+		<LoginCard v-if="!is_authed" />
+		<MainView v-else />
+	</div>
+</template>
+
+<script>
+// Import components
+import LoginCard from './components/LoginCard.vue'
+import MainView from './components/MainView.vue'
+
+export default {
+	name: 'App',
+	components: {
+		"LoginCard": LoginCard,
+		"MainView": MainView
+	},
+	data: function () {
+		return {
+			params: null
+		}
+	},
+	computed: {
+		is_authed() {
+			let params = new URLSearchParams(window.location.hash.slice(1));
+			let qparams = new URLSearchParams(window.location.search.slice(1));
+
+			if ( qparams.get(`dev`) != null && qparams.get(`dev`) !== `false` ) {
+				return true;
+			} else if ( qparams.get(`preview`) != null && qparams.get(`preview`) !== `false`) {
+				return true
+			}
+
+			// Check to ensure the authorization was a success
+			if (params.get(`access_token`)) {
+				// this.get_user()
+
+				// // Check if we compare state
+				// if (this.use_state) {
+
+				// 	// Compare given state to localstorage state
+				// 	let LS_state = localStorage.getItem(`top-spotify-state`);
+				// 	if (LS_state == params.get(`state`)) {
+				// 		console.info(`State compare success`)
+				// 		return true
+				// 	}
+				// 	console.error(`State compare failed`)
+				// 	return false
+				// } else {
+				// 	return true
+				// }
+				return true
+			} else {
+				let error = (new URLSearchParams(window.location.search)).get(`error`)
+
+				// Authorization failed, error to the user
+				if (error !== null) {
+					window.location.hash = ``;
+				}
+				return false;
+			}
+		}
+	}
+}
+</script>
+
+<style>
+@import "./css/dark_theme.css";
+
+html, body, .maximize_size {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+	font-family: var(--fonts);
+}
+
+body {
+	background-color: var(--background);
+	color: var(--background-text);
+}
+</style>
