@@ -25,6 +25,7 @@
 
 	--corner-rounding: 7px;
 
-	--select-background: var(--spotify-black);
-	--select-text: var(--spotify-green);
+	--input-background: var(--spotify-black);
+	--input-text: var(--spotify-green);
+	--input-active-border: var(--accent1);
 }
