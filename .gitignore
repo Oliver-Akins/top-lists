@@ -1,1 +1,4 @@
 expired_tokens
+node_modules
+dist
+.vscode
