@@ -129,25 +129,33 @@ export default {
 select {
 	background-color: var(--input-background);
 	border-radius: var(--corner-rounding);
+	border-color: transparent;
 	font-family: var(--fonts);
 	color: var(--input-text);
+	border-style: solid;
+	border-width: 2px;
 	outline: none;
 	padding: 15px;
 	border: none;
 }
 select:hover { cursor: pointer; }
+select:active, select:focus {
+	border-color: var(--input-active-border);
+}
 
 input[type=number] {
 	background-color: var(--input-background);
 	border-radius: var(--corner-rounding);
-	color: var(--input-text);
 	font-family: var(--fonts);
-	border-style: none;
+	border-color: transparent;
+	color: var(--input-text);
+	border-style: solid;
+	border-width: 2px;
 	outline: none;
 	padding: 15px;
 	width: 100px;
 }
-input[type=number]:active {
-	border-color: var(--spotify-green);
+input[type=number]:focus {
+	border-color: var(--input-active-border);
 }
 </style>
