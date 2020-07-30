@@ -29,7 +29,7 @@
 			v-if="type && duration"
 			id="data_button"
 		>
-			<button @click.self="event('data_request')">
+			<button @click.self="data_request()">
 				{{ button_text }}
 			</button>
 		</div>
@@ -40,6 +40,9 @@
 			<button @click.self="event('export-attempt')">
 				Export Playlist
 			</button>
+		</div>
+		<div v-if="error" id="error">
+			{{ error }}
 		</div>
 	</div>
 </template>
@@ -52,6 +55,7 @@ export default {
 	],
 	components: {},
 	data() { return {
+		error: ``,
 		user: {
 			name: ``,
 			image: ``,
@@ -62,19 +66,34 @@ export default {
 	};},
 	computed: {
 		button_text() {
+			let pre_text = `Get Top`;
 			switch (this.amount) {
 				case "":
-					return `Get top 10 ${this.type}`;
+					return `${pre_text} 10 ${this.type}`;
 				case "1":
-					return `Get top ${this.type.slice(0, -1)}`;
+					return `${pre_text} ${this.type.slice(0, -1)}`;
 				default:
-					return `Get top ${this.amount} ${this.type}`;
+					return `${pre_text} ${this.amount} ${this.type}`;
 			}
 		}
 	},
 	methods: {
 		event(name) { this.$emit(name); },
 		get_user() {},
+		data_request() {
+			let amount = parseInt(this.amount);
+			if (amount > 50) {
+				this.error = `Cannot request more than 50 ${this.type.toLowerCase()}`;
+			} else if (amount < 1) {
+				this.error = `Cannot get 0 or fewer ${this.type.toLowerCase()}`;
+			} else {
+				this.event(`data_request`, {
+					type: this.type,
+					amount: amount,
+					duration: this.duration,
+				});
+			}
+		},
 	}
 }
 </script>
@@ -85,21 +104,50 @@ export default {
 	background-color: var(--card-colour);
 	justify-content: space-evenly;
 	align-items: center;
-	flex-wrap: wrap;
 	margin: 15px auto;
+	flex-wrap: wrap;
 	display: flex;
-	padding: 15px;
+	padding: 15px 15px 5px;
 	width: 90%;
 }
 
+#control > div {
+	margin-bottom: 10px;
+}
+
+#error {
+	border-radius: var(--corner-rounding);
+	border-color: var(--error);
+	border-style: solid;
+	color: var(--error);
+	text-align: center;
+	border-width: 2px;
+	padding: 15px;
+	width: 100%;
+}
+
 select {
-	background-color: var(--select-background);
+	background-color: var(--input-background);
 	border-radius: var(--corner-rounding);
 	font-family: var(--fonts);
-	color: var(--select-text);
+	color: var(--input-text);
 	outline: none;
 	padding: 15px;
 	border: none;
 }
 select:hover { cursor: pointer; }
+
+input[type=number] {
+	background-color: var(--input-background);
+	border-radius: var(--corner-rounding);
+	color: var(--input-text);
+	font-family: var(--fonts);
+	border-style: none;
+	outline: none;
+	padding: 15px;
+	width: 100px;
+}
+input[type=number]:active {
+	border-color: var(--spotify-green);
+}
 </style>
