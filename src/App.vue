@@ -1,7 +1,11 @@
 <template>
 	<div class="maximize_size">
 		<LoginCard v-if="!is_authed" />
-		<MainView v-else />
+		<MainView
+			v-else
+			:preview_mode="is_preview"
+			:dev_mode="is_dev"
+		/>
 	</div>
 </template>
 
@@ -22,15 +26,18 @@ export default {
 		}
 	},
 	computed: {
+		is_dev() {
+			let params = new URLSearchParams(window.location.search.slice(1));
+			return params.get(`dev`) != null && params.get(`dev`) !== `false`
+		},
+		is_preview() {
+			let params = new URLSearchParams(window.location.search.slice(1));
+			return params.get(`preview`) != null && params.get(`preview`) !== `false`
+		},
 		is_authed() {
 			let params = new URLSearchParams(window.location.hash.slice(1));
-			let qparams = new URLSearchParams(window.location.search.slice(1));
 
-			if ( qparams.get(`dev`) != null && qparams.get(`dev`) !== `false` ) {
-				return true;
-			} else if ( qparams.get(`preview`) != null && qparams.get(`preview`) !== `false`) {
-				return true
-			}
+			if ( this.is_dev || this.is_preview ) { return true; };
 
 			// Check to ensure the authorization was a success
 			if (params.get(`access_token`)) {

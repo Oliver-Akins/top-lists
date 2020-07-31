@@ -1,6 +1,8 @@
 <template>
 	<div id="main_screen">
 		<Control
+			:dev="dev_mode"
+			:preview="preview_mode"
 			@export-attempt="handle_export"
 		/>
 	</div>
@@ -11,6 +13,10 @@ import ControlCard from "./ControlBar.vue"
 
 export default {
 	name: ``,
+	props: {
+		preview_mode: Boolean,
+		dev_mode: Boolean,
+	},
 	components: {
 		Control: ControlCard
 	},

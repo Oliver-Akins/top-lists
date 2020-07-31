@@ -50,9 +50,11 @@
 <script>
 export default {
 	name: `ControlBar`,
-	props: [
-		'data_exists'
-	],
+	props: {
+		data_exists: Boolean,
+		dev: Boolean,
+		preview: Boolean,
+	},
 	components: {},
 	data() { return {
 		error: ``,
