@@ -1,10 +1,10 @@
 <template>
 	<div id="control">
 		<div
-			v-if="user.name || dev || preview"
+			v-if="username"
 			id="user_data"
 		>
-			{{ user.name }}
+			{{ username }}
 		</div>
 		<div id="type">
 			<select v-model="type">
@@ -73,6 +73,17 @@ export default {
 		amount: ``,
 	};},
 	computed: {
+		username() {
+			if (this.user.name) {
+				return this.user.name;
+			} else if (this.dev) {
+				return `Developer Mode`;
+			} else if (this.preview) {
+				return `Preview Mode`;
+			} else {
+				return ``;
+			};
+		},
 		button_text() {
 			let pre_text = `Get Top`;
 			switch (this.amount) {
