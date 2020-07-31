@@ -36,7 +36,7 @@ export default {
 				let state = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 				params.push(`state=${state}`);
 				localStorage.setItem(`top-spotify-state`, state);
-			}
+			};
 
 			return `${this.auth_base}?${params.join("&")}`;
 		}
@@ -64,7 +64,8 @@ export default {
 }
 
 button {
-	background-color: var(--spotify-green);
+	background-color: var(--button-background);
+	color: var(--button-text);
 	font-family: var(--fonts);
 	border-radius: 50px;
 	padding: 10px 20px;
@@ -72,6 +73,7 @@ button {
 	font-size: larger;
 	outline: none;
 }
+button:hover { cursor: pointer; }
 
 p {
 	margin-bottom: 0px;
