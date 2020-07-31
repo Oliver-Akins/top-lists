@@ -1,6 +1,11 @@
 <template>
 	<div id="control">
-		<div id="user_data"></div>
+		<div
+			v-if="user.name || dev || preview"
+			id="user_data"
+		>
+			{{ user.name }}
+		</div>
 		<div id="type">
 			<select v-model="type">
 				<option value="" disabled>Select a Type</option>
@@ -18,15 +23,16 @@
 		</div>
 		<div id="amount">
 			<input
+				v-model="amount"
 				type="number"
 				min="1"
 				max="50"
 				placeholder="How many?"
-				v-model="amount"
+				@input="verify_request_amount()"
 			>
 		</div>
 		<div
-			v-if="type && duration"
+			v-if="type && duration && !error"
 			id="data_button"
 		>
 			<button @click.self="data_request()">
@@ -82,34 +88,51 @@ export default {
 	methods: {
 		event(name) { this.$emit(name); },
 		get_user() {},
-		data_request() {
-			let amount = parseInt(this.amount);
+		verify_request_amount() {
+			let amount;
+			try {
+				amount = parseInt(this.amount)
+			} catch (err) {
+				this.error = err
+				return;
+			};
+
 			if (amount > 50) {
 				this.error = `Cannot request more than 50 ${this.type.toLowerCase()}`;
+				return;
 			} else if (amount < 1) {
 				this.error = `Cannot get 0 or fewer ${this.type.toLowerCase()}`;
+				return;
 			} else {
+				this.error = ``;
+				return amount;
+			}
+		},
+		data_request() {
+			let amount = parseInt(this.amount);
+			if (amount) {
 				this.event(`data_request`, {
 					type: this.type,
 					amount: amount,
 					duration: this.duration,
 				});
-			}
+			};
 		},
 	}
 }
 </script>
 
-<style scoped>
+<style>
 #control {
 	border-radius: var(--corner-rounding);
 	background-color: var(--card-colour);
 	justify-content: space-evenly;
+	padding: 15px 15px 5px;
+	flex-direction: column;
 	align-items: center;
 	margin: 15px auto;
 	flex-wrap: wrap;
 	display: flex;
-	padding: 15px 15px 5px;
 	width: 90%;
 }
 
