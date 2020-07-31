@@ -16,6 +16,8 @@ module.exports = {
 				"allowFirstLine": false
 			}
 		}],
-		"vue/singleline-html-element-content-newline": "off"
+		"vue/singleline-html-element-content-newline": "off",
+		"vue/prop-name-casing": "off",
+		"vue/order-in-components": "off"
 	}
 }
