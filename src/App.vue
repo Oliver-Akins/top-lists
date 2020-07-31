@@ -11,8 +11,8 @@
 
 <script>
 // Import components
-import LoginCard from './components/LoginCard.vue'
-import MainView from './components/MainView.vue'
+import LoginCard from './components/LoginView.vue';
+import MainView from './components/MainView.vue';
 
 export default {
 	name: 'App',
@@ -72,6 +72,7 @@ export default {
 
 <style>
 @import "./css/dark_theme.css";
+@import "./css/inputs.css";
 
 html, body, .maximize_size {
 	width: 100%;
