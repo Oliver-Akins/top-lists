@@ -122,40 +122,15 @@ export default {
 	color: var(--error);
 	text-align: center;
 	border-width: 2px;
-	padding: 15px;
-	width: 100%;
+	padding: 10px;
+	height: 25px;
+	width: 90%;
 }
 
-select {
-	background-color: var(--input-background);
-	border-radius: var(--corner-rounding);
-	border-color: transparent;
-	font-family: var(--fonts);
-	color: var(--input-text);
-	border-style: solid;
-	border-width: 2px;
-	outline: none;
-	padding: 15px;
-	border: none;
-}
-select:hover { cursor: pointer; }
-select:active, select:focus {
-	border-color: var(--input-active-border);
-}
-
-input[type=number] {
-	background-color: var(--input-background);
-	border-radius: var(--corner-rounding);
-	font-family: var(--fonts);
-	border-color: transparent;
-	color: var(--input-text);
-	border-style: solid;
-	border-width: 2px;
-	outline: none;
-	padding: 15px;
-	width: 100px;
-}
-input[type=number]:focus {
-	border-color: var(--input-active-border);
+@media only screen and (min-width: 768px) {
+	#control {
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
 }
 </style>
