@@ -41,23 +41,21 @@ export default {
 
 			// Check to ensure the authorization was a success
 			if (params.get(`access_token`)) {
-				// this.get_user()
 
-				// // Check if we compare state
-				// if (this.use_state) {
+				// Check if we compare state
+				if (process.env.NODE_ENV === `production`) {
 
-				// 	// Compare given state to localstorage state
-				// 	let LS_state = localStorage.getItem(`top-spotify-state`);
-				// 	if (LS_state == params.get(`state`)) {
-				// 		console.info(`State compare success`)
-				// 		return true
-				// 	}
-				// 	console.error(`State compare failed`)
-				// 	return false
-				// } else {
-				// 	return true
-				// }
-				return true
+					// Compare given state to localstorage state
+					let LS_state = localStorage.getItem(`top-spotify-state`);
+					if (LS_state == params.get(`state`)) {
+						console.info(`State compare success`)
+						return true
+					}
+					console.error(`State compare failed`)
+					return false
+				} else {
+					return true
+				}
 			} else {
 				let error = (new URLSearchParams(window.location.search)).get(`error`)
 
