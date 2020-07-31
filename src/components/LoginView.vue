@@ -44,7 +44,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 #login_screen {
 	font-family: var(--fonts);
 	justify-content: center;
