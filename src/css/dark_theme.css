@@ -28,4 +28,7 @@
 	--input-background: var(--spotify-black);
 	--input-text: var(--spotify-green);
 	--input-active-border: var(--accent1);
+
+	--button-background: var(--spotify-green);
+	--button-text: var(--spotify-black);
 }
