@@ -31,4 +31,7 @@
 
 	--button-background: var(--spotify-green);
 	--button-text: var(--spotify-black);
+
+	--missing-picture-background: var(--background);
+	--missing-picture-foreground: var(--accent2);
 }
