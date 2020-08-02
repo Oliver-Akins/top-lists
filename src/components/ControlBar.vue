@@ -4,10 +4,26 @@
 			v-if="username"
 			id="user_data"
 		>
+			<img
+				v-if="user.image"
+				src="user.image"
+				alt="`${user.name}'s profile picture`"
+				:width="img_size"
+				:height="img_size"
+			>
+			<icon
+				v-else
+				type="notes"
+				:size="40"
+				:border="20"
+				:inner_size="20"
+				:primary="css_var('--missing-picture-foreground')"
+				:background="css_var('--missing-picture-background')"
+			/>
 			{{ username }}
 		</div>
 		<div id="type">
-			<select v-model="type">
+			<select v-model="type" @change="verify_request_amount()">
 				<option value="" disabled>Select a Type</option>
 				<option>Tracks</option>
 				<option>Artists</option>
@@ -54,6 +70,8 @@
 </template>
 
 <script>
+import Icon from "./Icon.vue";
+
 export default {
 	name: `ControlBar`,
 	props: {
@@ -61,8 +79,11 @@ export default {
 		dev: Boolean,
 		preview: Boolean,
 	},
-	components: {},
+	components: {
+		icon: Icon,
+	},
 	data() { return {
+		img_size: '50',
 		error: ``,
 		user: {
 			name: ``,
@@ -120,14 +141,11 @@ export default {
 			}
 		},
 		data_request() {
-			let amount = parseInt(this.amount);
-			if (amount) {
-				this.event(`data_request`, {
-					type: this.type,
-					amount: amount,
-					duration: this.duration,
-				});
-			};
+			this.event(`data_request`, {
+				type: this.type,
+				amount: this.amount || `10`,
+				duration: this.duration,
+			});
 		},
 	}
 }
@@ -166,7 +184,6 @@ export default {
 @media only screen and (min-width: 768px) {
 	#control {
 		flex-direction: row;
-		flex-wrap: wrap;
 	}
 }
 </style>
