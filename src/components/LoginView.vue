@@ -11,7 +11,7 @@
 
 <script>
 export default {
-	name: 'LoginCard',
+	name: 'LoginView',
 	data() { return {
 		alert: `We will only be able to access your top tracks and artists, nothing else. This is also only done on your browser. Our servers do not see any of the data from your account.`,
 		auth_base: `https://accounts.spotify.com/authorize`,

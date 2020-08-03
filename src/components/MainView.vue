@@ -12,7 +12,7 @@
 import ControlCard from "./ControlBar.vue"
 
 export default {
-	name: ``,
+	name: `MainView`,
 	props: {
 		preview_mode: Boolean,
 		dev_mode: Boolean,
