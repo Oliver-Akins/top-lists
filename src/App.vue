@@ -10,6 +10,9 @@
 </template>
 
 <script>
+// Import constants file
+import "./constants.js";
+
 // Import components
 import LoginCard from './components/LoginView.vue';
 import MainView from './components/MainView.vue';
