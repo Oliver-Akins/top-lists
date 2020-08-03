@@ -3,7 +3,8 @@
 		<Control
 			:dev="dev_mode"
 			:preview="preview_mode"
-			@export-attempt="handle_export"
+			@playlist_export="handle_export"
+			@data_request="get_data"
 		/>
 	</div>
 </template>
@@ -24,8 +25,11 @@ export default {
 	computed: {},
 	methods: {
 		handle_export() {
-			alert("Potato")
-		}
+			console.log("Handling the export");
+		},
+		get_data() {
+			console.log("Fetching data from Spotify")
+		},
 	}
 }
 </script>

@@ -59,7 +59,7 @@
 			v-if="type === 'Tracks' && data_exists"
 			id="playlist_button"
 		>
-			<button @click.self="event('export-attempt')">
+			<button @click.self="event('playlist_export')">
 				Export Playlist
 			</button>
 		</div>
@@ -118,7 +118,7 @@ export default {
 		}
 	},
 	methods: {
-		event(name) { this.$emit(name); },
+		event(name, data=null) { this.$emit(name, data); },
 		get_user() {},
 		verify_request_amount() {
 			let amount;
