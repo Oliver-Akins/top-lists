@@ -84,8 +84,8 @@ export default {
 			required: false,
 		},
 		border: {
-			type: String,
-			default: `0`,
+			type: Number,
+			default: 0,
 			required: false,
 		}
 	},
