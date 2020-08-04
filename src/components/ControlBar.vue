@@ -79,6 +79,8 @@ export default {
 		data_exists: Boolean,
 		dev: Boolean,
 		preview: Boolean,
+		api_url: String,
+		token: String,
 	},
 	components: {
 		icon: Icon,
