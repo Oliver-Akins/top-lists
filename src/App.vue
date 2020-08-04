@@ -10,9 +10,6 @@
 </template>
 
 <script>
-// Import constants file
-import "./constants.js";
-
 // Import components
 import LoginCard from './components/LoginView.vue';
 import MainView from './components/MainView.vue';
@@ -23,11 +20,7 @@ export default {
 		"LoginCard": LoginCard,
 		"MainView": MainView
 	},
-	data: function () {
-		return {
-			params: null
-		}
-	},
+	data() { return {} },
 	computed: {
 		is_dev() {
 			let params = new URLSearchParams(window.location.search.slice(1));
