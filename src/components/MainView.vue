@@ -3,6 +3,8 @@
 		<Control
 			:dev="dev_mode"
 			:preview="preview_mode"
+			:api_url="api_base"
+			:token="get_token()"
 			@playlist_export="handle_export"
 			@data_request="get_data"
 		/>
