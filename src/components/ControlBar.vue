@@ -6,17 +6,17 @@
 		>
 			<img
 				v-if="user.image"
-				src="user.image"
-				alt="`${user.name}'s profile picture`"
+				class="profile_image"
+				:src="user.image"
+				:alt="`${user.name}'s profile picture`"
 				:width="img_size"
 				:height="img_size"
 			>
 			<icon
 				v-else
 				type="notes"
-				:size="40"
-				:border="20"
-				:inner_size="20"
+				:size="img_size"
+				:border="Math.floor(img_size / 2)"
 				:primary="css_var('--missing-picture-foreground')"
 				:background="css_var('--missing-picture-background')"
 			/>
