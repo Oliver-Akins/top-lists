@@ -86,7 +86,7 @@ export default {
 		icon: Icon,
 	},
 	data() { return {
-		img_size: '50',
+		img_size: 50,
 		error: ``,
 		user: {
 			name: ``,
