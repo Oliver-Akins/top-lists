@@ -8,6 +8,7 @@
 			@playlist_export="handle_export"
 			@data_request="get_data"
 		/>
+		<div v-if="error" class="error">{{ error }}</div>
 	</div>
 </template>
 
