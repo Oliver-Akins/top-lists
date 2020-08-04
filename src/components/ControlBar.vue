@@ -208,6 +208,11 @@ export default {
 	width: 90%;
 }
 
+img.profile_image {
+	vertical-align: middle;
+	border-radius: 50%;
+}
+
 @media only screen and (min-width: 768px) {
 	#control {
 		flex-direction: row;
