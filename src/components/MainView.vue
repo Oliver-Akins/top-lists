@@ -10,7 +10,8 @@
 </template>
 
 <script>
-import ControlCard from "./ControlBar.vue"
+import * as axios from "axios";
+import ControlCard from "./ControlBar.vue";
 
 export default {
 	name: `MainView`,
@@ -21,14 +22,38 @@ export default {
 	components: {
 		Control: ControlCard
 	},
-	data() { return {};},
+	data() { return {
+		data: [],
+		error: ``,
+		api_base: `https://api.spotify.com/v1`,
+	};},
 	computed: {},
 	methods: {
+		get_token() {
+			let params = new URLSearchParams(window.location.hash.slice(1));
+			return params.get(`access_token`);
+		},
 		handle_export() {
 			console.log("Handling the export");
 		},
-		get_data() {
+		get_data(config) {
 			console.log("Fetching data from Spotify")
+			console.log(config)
+			let url = `${this.api_base}/me/top/${config.type.toLowerCase()}`;
+
+			let limit = parseInt(config.count) || 10;
+
+			url += `?limit=${limit}&time_range=${config.duration}`;
+
+			axios.get(
+				url,
+				{ headers: { Authorization: `Bearer ${this.get_token()}` } }
+			).then((response) => {
+				this.error = ``;
+				this.data = response.data.items;
+			}).catch((err) => {
+				this.error = `${err.name}: ${err.message}`
+			});
 		},
 	}
 }

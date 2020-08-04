@@ -70,6 +70,7 @@
 </template>
 
 <script>
+import * as axios from "axios";
 import Icon from "./Icon.vue";
 
 export default {
@@ -147,6 +148,30 @@ export default {
 				duration: this.duration,
 			});
 		},
+	},
+	mounted: function() {
+		this.$nextTick(function() {
+			axios.get(
+				`${this.api_url}/me`,
+				{ headers: { Authorization: `Bearer ${this.token}` } }
+			).then((response) => {
+				if (response.error) {
+					window.location.hash = ``;
+					window.location.href = `${this.auth.redirect}?error=${encodeURI(response.error)}`;
+					return
+				}
+				let data = response.data;
+
+				// Set the Vue user object
+				this.user.name = data.display_name;
+				this.user.image = data.images.length > 0 ? data.images[0].url : ``;
+
+			}).catch((err) => {
+				window.location.hash = ``;
+				window.location.href = `${this.auth.redirect}?error=${encodeURI(err)}`;;
+				return
+			})
+		});
 	}
 }
 </script>
