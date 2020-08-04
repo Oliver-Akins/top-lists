@@ -76,11 +76,26 @@ import Icon from "./Icon.vue";
 export default {
 	name: `ControlBar`,
 	props: {
-		data_exists: Boolean,
-		dev: Boolean,
-		preview: Boolean,
-		api_url: String,
-		token: String,
+		data_exists: {
+			type: Boolean,
+			required: true,
+		},
+		dev: {
+			type: Boolean,
+			required: true,
+		},
+		preview: {
+			type: Boolean,
+			required: true,
+		},
+		api_url: {
+			type: String,
+			required: true,
+		},
+		token: {
+			type: String,
+			required: true,
+		},
 	},
 	components: {
 		icon: Icon,
