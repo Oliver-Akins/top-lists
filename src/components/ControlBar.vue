@@ -188,7 +188,7 @@ export default {
 				this.user.image = data.images.length > 0 ? data.images[0].url : ``;
 
 			}).catch((err) => {
-				console/error(err)
+				console.error(err)
 				window.location.hash = ``;
 				window.location.href = `${this.auth_redirect}?error=${encodeURI(err)}`;;
 				return
