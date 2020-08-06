@@ -33,7 +33,6 @@ import * as axios from "axios";
 import ControlCard from "./ControlBar.vue";
 import ArtistCard from "./cards/Artist.vue";
 import TrackCard from "./cards/Track.vue";
-import UnknownTypeCard from "./cards/UnknownType.vue";
 
 export default {
 	name: `MainView`,
