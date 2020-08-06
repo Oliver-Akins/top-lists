@@ -70,7 +70,7 @@ export default {
 		get_data(config) {
 			let url = `${this.api_base}/me/top/${config.type.toLowerCase()}`;
 
-			let limit = parseInt(config.count) || 10;
+			let limit = config.limit || 10;
 
 			url += `?limit=${limit}&time_range=${config.duration}`;
 
@@ -79,6 +79,7 @@ export default {
 				{ headers: { Authorization: `Bearer ${this.get_token()}` } }
 			).then((response) => {
 				this.error = ``;
+				this.config = config;
 				this.data = response.data.items;
 			}).catch((err) => {
 				this.error = `${err.name}: ${err.message}`
