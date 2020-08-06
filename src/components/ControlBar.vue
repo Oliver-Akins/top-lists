@@ -213,7 +213,7 @@ export default {
 }
 
 #control > div {
-	margin-bottom: 10px;
+	margin: 5px 5px 10px 5px;
 }
 
 #error {

@@ -94,8 +94,8 @@ export default {
 }
 
 .card {
+	border-radius: var(--corner-rounding);
 	background-color: var(--card-colour);
-	border-radius: var(--border-radius);
 	color: var(--card-text);
 	padding: 20px 10px 10px;
 	flex-direction: column;

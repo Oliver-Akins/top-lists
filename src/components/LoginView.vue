@@ -4,7 +4,7 @@
 			<a :href="spotify_auth_url">
 				<button>Login With Spotify</button>
 			</a>
-			<p> {{ alert }} </p>
+			<p class="alert"> {{ alert }} </p>
 		</div>
 	</div>
 </template>
@@ -49,7 +49,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #login_screen {
 	font-family: var(--fonts);
 	justify-content: center;
@@ -80,8 +80,20 @@ button {
 }
 button:hover { cursor: pointer; }
 
-p {
+
+.alert {
 	margin-bottom: 0px;
 	margin-top: 15px;
+}
+
+
+.error {
+	background-color: var(--error-background);
+	border-radius: var(--corner-rounding);
+	border-color: var(--error);
+	border-style: solid;
+	color: var(--error);
+	margin-bottom: 15px;
+	border-width: 2px;
 }
 </style>
