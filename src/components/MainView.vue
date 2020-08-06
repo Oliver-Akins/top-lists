@@ -12,18 +12,12 @@
 		/>
 		<div v-if="error" class="error">{{ error }}</div>
 		<div v-else id="data_view">
-			<span
-				v-for="item in data"
+			<component
+				:is="config.type.slice(0, -1)"
+				v-for="item in items"
 				:key="item.uri"
-			>
-				<Track
-					v-if="item.type === 'track'"
-					:item="item"/>
-				<Artist
-					v-else-if="item.type === 'artist'"
-					:item="item"/>
-				<Unknown v-else :item="item"/>
-			</span>
+				:item="item"
+			/>
 		</div>
 	</div>
 </template>
@@ -60,7 +54,11 @@ export default {
 		error: ``,
 		api_base: `https://api.spotify.com/v1`,
 	};},
-	computed: {},
+	computed: {
+		items() {
+			return this.data.filter(item => item.type === this.config.type.slice(0, -1).toLowerCase())
+		}
+	},
 	methods: {
 		get_token() {
 			let params = new URLSearchParams(window.location.hash.slice(1));
