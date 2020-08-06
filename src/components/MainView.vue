@@ -50,6 +50,7 @@ export default {
 		Artist: ArtistCard,
 	},
 	data() { return {
+		config: {},
 		data: [],
 		error: ``,
 		api_base: `https://api.spotify.com/v1`,
