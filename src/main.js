@@ -3,6 +3,7 @@ import VTooltip from 'v-tooltip'
 import App from './App.vue';
 
 Vue.config.productionTip = false;
+VTooltip.enabled = window.innerWidth > 768
 
 // Third-party plugins
 Vue.use(VTooltip);
