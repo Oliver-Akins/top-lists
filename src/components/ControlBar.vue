@@ -96,6 +96,10 @@ export default {
 			type: String,
 			required: true,
 		},
+		auth_redirect: {
+			type: String,
+			required: true,
+		}
 	},
 	components: {
 		icon: Icon,
@@ -174,7 +178,7 @@ export default {
 			).then((response) => {
 				if (response.error) {
 					window.location.hash = ``;
-					window.location.href = `${this.auth.redirect}?error=${encodeURI(response.error)}`;
+					window.location.href = `${this.auth_redirect}?error=${encodeURI(response.error)}`;
 					return
 				}
 				let data = response.data;
@@ -184,8 +188,9 @@ export default {
 				this.user.image = data.images.length > 0 ? data.images[0].url : ``;
 
 			}).catch((err) => {
+				console/error(err)
 				window.location.hash = ``;
-				window.location.href = `${this.auth.redirect}?error=${encodeURI(err)}`;;
+				window.location.href = `${this.auth_redirect}?error=${encodeURI(err)}`;;
 				return
 			})
 		});

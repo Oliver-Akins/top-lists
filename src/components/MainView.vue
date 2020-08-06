@@ -4,6 +4,7 @@
 			:dev="dev_mode"
 			:preview="preview_mode"
 			:api_url="api_base"
+			:auth_redirect="auth_redirect"
 			:token="get_token()"
 			:data_exists="data.length !== 0"
 			@playlist_export="handle_export"
@@ -37,14 +38,15 @@ import UnknownTypeCard from "./cards/UnknownType.vue";
 export default {
 	name: `MainView`,
 	props: {
-		preview_mode: Boolean,
-		dev_mode: Boolean,
+		auth_redirect: {
+			type: String,
+			required: true,
+		}
 	},
 	components: {
 		Control: ControlCard,
 		Track: TrackCard,
 		Artist: ArtistCard,
-		Unknown: UnknownTypeCard,
 	},
 	data() { return {
 		data: [],

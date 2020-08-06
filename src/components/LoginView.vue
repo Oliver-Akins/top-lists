@@ -12,11 +12,16 @@
 <script>
 export default {
 	name: 'LoginView',
+	props: {
+		redirect: {
+			type: String,
+			required: true,
+		}
+	},
 	data() { return {
 		alert: `We will only be able to access your top tracks and artists, nothing else. This is also only done on your browser. Our servers do not see any of the data from your account.`,
 		auth_base: `https://accounts.spotify.com/authorize`,
 		use_state: process.env.NODE_ENV === `production`,
-		redirect: process.env.NODE_ENV === `production` ? `https://oliver.akins.me/top-lists` : `http://localhost:8080`,
 		client_id: `3a1795e9d55445b0aa0c05dd74c866fb`,
 		scopes: [ `user-top-read` ],
 		show_dialog: process.env.NODE_ENV !== `production`,
