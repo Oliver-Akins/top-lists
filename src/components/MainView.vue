@@ -38,6 +38,14 @@ import UnknownTypeCard from "./cards/UnknownType.vue";
 export default {
 	name: `MainView`,
 	props: {
+		preview_mode: {
+			type: Boolean,
+			required: true,
+		},
+		dev_mode: {
+			type: Boolean,
+			required: true,
+		},
 		auth_redirect: {
 			type: String,
 			required: true,
