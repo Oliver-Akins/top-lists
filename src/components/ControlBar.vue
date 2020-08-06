@@ -161,7 +161,7 @@ export default {
 		data_request() {
 			this.event(`data_request`, {
 				type: this.type,
-				amount: this.amount || `10`,
+				limit: this.amount || `10`,
 				duration: this.duration,
 			});
 		},
