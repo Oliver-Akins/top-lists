@@ -1,6 +1,10 @@
 <template>
 	<div id="login_screen" class="maximize_size">
 		<div class="card">
+			<div
+				v-if="error"
+				class="error"
+			>{{ error }}</div>
 			<a :href="spotify_auth_url">
 				<button>Login With Spotify</button>
 			</a>
@@ -44,7 +48,11 @@ export default {
 			};
 
 			return `${this.auth_base}?${params.join("&")}`;
-		}
+		},
+		error() {
+			let error_message = (new URLSearchParams(window.location.search.slice(1))).get(`error`);
+			return error_message ? error_message : ``;
+		},
 	}
 }
 </script>
