@@ -99,25 +99,4 @@ export default {
 	display: flex;
 	width: 90%;
 }
-
-.card {
-	border-radius: var(--corner-rounding);
-	background-color: var(--card-colour);
-	color: var(--card-text);
-	padding: 20px 10px 10px;
-	flex-direction: column;
-	border-style: none;
-	position: relative;
-	margin: 5px auto;
-	display: flex;
-	width: 90%;
-}
-
-
-@media only screen and (min-width: 768px) {
-	.card {
-		width: 230px;
-		margin: 5px;
-	}
-}
 </style>
