@@ -35,4 +35,7 @@
 
 	--missing-picture-background: var(--background);
 	--missing-picture-foreground: var(--accent2);
+
+	--tooltip-colour: #000000;
+	--tooltip-text: var(--spotify-green);
 }

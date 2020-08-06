@@ -73,6 +73,7 @@ export default {
 
 <style>
 @import "./css/dark_theme.css";
+@import "./css/tooltips.css";
 @import "./css/inputs.css";
 
 html, body, .maximize_size {
