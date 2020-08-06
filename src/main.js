@@ -1,7 +1,11 @@
 import Vue from 'vue';
+import VTooltip from 'v-tooltip'
 import App from './App.vue';
 
 Vue.config.productionTip = false;
+
+// Third-party plugins
+Vue.use(VTooltip);
 
 // global mixings
 Vue.mixin({
