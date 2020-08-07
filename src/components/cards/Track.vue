@@ -81,7 +81,7 @@ export default {
 .card {
 	border-radius: var(--corner-rounding);
 	background-color: var(--card-colour);
-	padding: 20px 10px 1.75em;
+	padding: 10px 10px 1.75em;
 	color: var(--card-text);
 	flex-direction: column;
 	align-items: center;
@@ -94,7 +94,7 @@ export default {
 
 
 img {
-	--size: 210px;
+	--size: 230px;
 	width: var(--size);
 	height: var(--size);
 }
