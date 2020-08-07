@@ -22,13 +22,17 @@
 			</div>
 		</div>
 		<div
-			class="popularity corner"
 			v-tooltip.auto="popularity_tooltip"
-		>{{ item.popularity }}</div>
+			class="popularity corner"
+		>
+			{{ item.popularity }}
+		</div>
 		<div
-			class="duration corner"
 			v-tooltip.auto="duration_tooltip"
-		>{{ duration }}</div>
+			class="duration corner"
+		>
+			{{ duration }}
+		</div>
 	</div>
 </template>
 

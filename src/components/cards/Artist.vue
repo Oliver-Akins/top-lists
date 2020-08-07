@@ -19,8 +19,18 @@
 			<div class="title">{{ item.name }}</div>
 			<div class="subtitle">{{ genres }}</div>
 		</div>
-		<div class="popularity corner">{{ item.popularity }}</div>
-		<div class="followers corner">{{ item.followers.total.toLocaleString() }}</div>
+		<div
+			v-tooltip.auto="popularity_tooltip"
+			class="popularity corner"
+		>
+			{{ item.popularity }}
+		</div>
+		<div
+			v-tooltip.auto="followers_tooltip"
+			class="followers corner"
+		>
+			{{ item.followers.total.toLocaleString() }}
+		</div>
 	</div>
 </template>
 
