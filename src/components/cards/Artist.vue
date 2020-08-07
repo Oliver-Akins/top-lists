@@ -44,7 +44,10 @@ export default {
 			required: true,
 		}
 	},
-	data() { return {};},
+	data() { return {
+		followers_tooltip: `Total Followers`,
+		popularity_tooltip: `Artist Popularity`,
+	}},
 	computed: {
 		genres() {
 			let genres = [];
