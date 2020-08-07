@@ -90,7 +90,7 @@ export default {
 
 
 img {
-	--size: 200px;
+	--size: 210px;
 	width: var(--size);
 	height: var(--size);
 }
