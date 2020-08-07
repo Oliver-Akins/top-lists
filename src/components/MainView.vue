@@ -7,6 +7,7 @@
 			:auth_redirect="auth_redirect"
 			:token="get_token()"
 			:data_exists="data.length !== 0"
+			:is_track_data="config.type === 'Tracks'"
 			@playlist_export="handle_export"
 			@data_request="get_data"
 		/>

@@ -56,7 +56,7 @@
 			</button>
 		</div>
 		<div
-			v-if="type === 'Tracks' && data_exists"
+			v-if="data_exists && is_track_data"
 			id="playlist_button"
 		>
 			<button @click.self="event('playlist_export')">
@@ -79,6 +79,11 @@ export default {
 		data_exists: {
 			type: Boolean,
 			required: true,
+		},
+		is_track_data: {
+			type: Boolean,
+			required: false,
+			default: false,
 		},
 		dev: {
 			type: Boolean,
