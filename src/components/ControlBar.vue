@@ -146,7 +146,6 @@ export default {
 	},
 	methods: {
 		event(name, data=null) { this.$emit(name, data); },
-		get_user() {},
 		verify_request_amount() {
 			let amount;
 			try {
