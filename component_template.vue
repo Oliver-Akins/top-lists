@@ -6,7 +6,7 @@
 export default {
 	name: ``,
 	components: {},
-	data() { return {};},
+	data() { return {}},
 	computed: {},
 	methods: {}
 }
