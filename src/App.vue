@@ -11,6 +11,9 @@
 </template>
 
 <script>
+// Import Misc JS things
+import "./js/prototypes.js";
+
 // Import components
 import LoginCard from './components/LoginView.vue';
 import MainView from './components/MainView.vue';
