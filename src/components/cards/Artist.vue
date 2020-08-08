@@ -22,6 +22,7 @@
 		<div
 			v-tooltip.auto="popularity_tooltip"
 			class="popularity corner"
+			@click.self="show_pop_modal = true"
 		>
 			{{ item.popularity }}
 		</div>
@@ -31,13 +32,22 @@
 		>
 			{{ item.followers.total.toLocaleString() }}
 		</div>
+		<PopularityModal
+			v-if="show_pop_modal"
+			@close="show_pop_modal = false"
+		/>
 	</div>
 </template>
 
 <script>
+// Import Components
+import PopularityModal from "../modals/PopularityInfo.vue";
+
 export default {
 	name: `ArtistCard`,
-	components: {},
+	components: {
+		PopularityModal: PopularityModal
+	},
 	props: {
 		item: {
 			type: Object,
@@ -47,6 +57,7 @@ export default {
 	data() { return {
 		followers_tooltip: `Total Followers`,
 		popularity_tooltip: `Artist Popularity`,
+		show_pop_modal: false,
 	}},
 	computed: {
 		genres() {
@@ -105,6 +116,9 @@ img {
 	border-radius: 0 var(--corner-rounding) 0 var(--corner-rounding);
 	bottom: 0;
 	left: 0;
+}
+.popularity:hover {
+	cursor: pointer;
 }
 
 .followers {

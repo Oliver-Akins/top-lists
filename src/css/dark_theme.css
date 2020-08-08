@@ -20,6 +20,7 @@
 
 	--modal-container-background: #0e0f10eb;
 	--modal-background: var(--card-colour);
+	--modal-close-button: var(--card-text);
 	--modal-text: var(--card-text);
 
 	--fonts: 'Open Sans', sans-serif;

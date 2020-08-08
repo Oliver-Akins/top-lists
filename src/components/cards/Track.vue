@@ -24,6 +24,7 @@
 		<div
 			v-tooltip.auto="popularity_tooltip"
 			class="popularity corner"
+			@click.self="show_pop_modal = true"
 		>
 			{{ item.popularity }}
 		</div>
@@ -33,13 +34,22 @@
 		>
 			{{ duration }}
 		</div>
+		<PopularityModal
+			v-if="show_pop_modal"
+			@close="show_pop_modal = false"
+		/>
 	</div>
 </template>
 
 <script>
+// Import Components
+import PopularityModal from "../modals/PopularityInfo.vue";
+
 export default {
 	name: `TrackCard`,
-	components: {},
+	components: {
+		PopularityModal: PopularityModal,
+	},
 	props: {
 		item: {
 			type: Object,
@@ -49,6 +59,7 @@ export default {
 	data() { return {
 		duration_tooltip: `Song Duration`,
 		popularity_tooltip: `Song Popularity`,
+		show_pop_modal: false,
 	}},
 	computed: {
 		duration() {
@@ -120,6 +131,9 @@ img {
 	border-radius: 0 var(--corner-rounding) 0 var(--corner-rounding);
 	bottom: 0;
 	left: 0;
+}
+.popularity:hover {
+	cursor: pointer;
 }
 
 .duration {
