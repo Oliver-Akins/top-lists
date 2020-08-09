@@ -12,6 +12,10 @@ Vue.use(VueEllipseProgress, `percent`);
 
 // global mixings
 Vue.mixin({
+	data() {return {
+		api_url: `https://api.spotify.com/v1`,
+		auth_redirect: process.env.NODE_ENV === `production` ? `https://oliver.akins.me/top-lists` : `http://localhost:8080`,
+	}},
 	methods: {
 		css_var(var_name) {
 			return getComputedStyle(document.documentElement).getPropertyValue(var_name);

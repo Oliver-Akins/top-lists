@@ -3,7 +3,6 @@
 		<Control
 			:dev="dev_mode"
 			:preview="preview_mode"
-			:api_url="api_base"
 			:auth_redirect="auth_redirect"
 			:token="get_token()"
 			:data_exists="data.length !== 0"
@@ -39,10 +38,6 @@ export default {
 		dev_mode: {
 			type: Boolean,
 			required: true,
-		},
-		auth_redirect: {
-			type: String,
-			required: true,
 		}
 	},
 	components: {
@@ -54,7 +49,6 @@ export default {
 		config: {},
 		data: [],
 		error: ``,
-		api_base: `https://api.spotify.com/v1`,
 	};},
 	computed: {
 		items() {
@@ -70,7 +64,7 @@ export default {
 			console.log("Handling the export");
 		},
 		get_data(config) {
-			let url = `${this.api_base}/me/top/${config.type.toLowerCase()}`;
+			let url = `${this.api_url}/me/top/${config.type.toLowerCase()}`;
 
 			let limit = config.limit || 10;
 

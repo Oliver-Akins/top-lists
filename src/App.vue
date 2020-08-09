@@ -1,9 +1,8 @@
 <template>
 	<div class="maximize_size">
-		<LoginCard v-if="!is_authed" :redirect="auth.redirect" />
+		<LoginCard v-if="!is_authed" />
 		<MainView
 			v-else
-			:auth_redirect="auth.redirect"
 			:preview_mode="is_preview"
 			:dev_mode="is_dev"
 		/>
@@ -24,11 +23,6 @@ export default {
 		"LoginCard": LoginCard,
 		"MainView": MainView
 	},
-	data() { return {
-		auth: {
-			redirect: process.env.NODE_ENV === `production` ? `https://oliver.akins.me/top-lists` : `http://localhost:8080`
-		}
-	} },
 	computed: {
 		is_dev() {
 			let params = new URLSearchParams(window.location.search.slice(1));

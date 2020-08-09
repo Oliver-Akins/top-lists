@@ -16,12 +16,6 @@
 <script>
 export default {
 	name: 'LoginView',
-	props: {
-		redirect: {
-			type: String,
-			required: true,
-		}
-	},
 	data() { return {
 		alert: `We will only be able to access your top tracks and artists, nothing else. This is also only done on your browser. Our servers do not see any of the data from your account.`,
 		auth_base: `https://accounts.spotify.com/authorize`,
@@ -35,7 +29,7 @@ export default {
 			let params = [
 				`client_id=${this.client_id}`,
 				`response_type=token`,
-				`redirect_uri=${encodeURIComponent(this.redirect)}`,
+				`redirect_uri=${encodeURIComponent(this.auth_redirect)}`,
 				`scope=${encodeURIComponent(this.scopes.join(" "))}`,
 				`show_dialog=${this.show_dialog}`
 			];

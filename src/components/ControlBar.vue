@@ -93,15 +93,7 @@ export default {
 			type: Boolean,
 			required: true,
 		},
-		api_url: {
-			type: String,
-			required: true,
-		},
 		token: {
-			type: String,
-			required: true,
-		},
-		auth_redirect: {
 			type: String,
 			required: true,
 		}
