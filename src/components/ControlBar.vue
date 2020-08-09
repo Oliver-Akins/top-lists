@@ -170,7 +170,7 @@ export default {
 		this.$nextTick(function() {
 			axios.get(
 				`${this.api_url}/me`,
-				{ headers: { Authorization: `Bearer ${this.token}` } }
+				{ headers: { Authorization: `Bearer ${this.api_token}` } }
 			).then((response) => {
 				if (response.error) {
 					window.location.hash = ``;
