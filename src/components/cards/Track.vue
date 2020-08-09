@@ -1,5 +1,5 @@
 <template>
-	<div class="card">
+	<div class="card" @click="show_track_info = true">
 		<div class="image">
 			<img
 				v-if="item.album.images.length !== 0"
@@ -38,17 +38,24 @@
 			v-if="show_pop_modal"
 			@close="show_pop_modal = false"
 		/>
+		<TrackInfo
+			v-if="show_track_info"
+			:track="item"
+			@close="show_track_info = false"
+		/>
 	</div>
 </template>
 
 <script>
 // Import Components
 import PopularityModal from "../modals/PopularityInfo.vue";
+import DetailedTrackModal from "../modals/DetailedTrack.vue";
 
 export default {
 	name: `TrackCard`,
 	components: {
 		PopularityModal: PopularityModal,
+		TrackInfo: DetailedTrackModal,
 	},
 	props: {
 		item: {
@@ -60,6 +67,7 @@ export default {
 		duration_tooltip: `Song Duration`,
 		popularity_tooltip: `Song Popularity`,
 		show_pop_modal: false,
+		show_track_info: false,
 	}},
 	computed: {
 		duration() {
