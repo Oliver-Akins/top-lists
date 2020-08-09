@@ -4,7 +4,9 @@
 			<div
 				v-if="error"
 				class="error"
-			>{{ error }}</div>
+			>
+				{{ error }}
+			</div>
 			<a :href="spotify_auth_url">
 				<button>Login With Spotify</button>
 			</a>
