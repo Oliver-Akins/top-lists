@@ -39,4 +39,8 @@
 
 	--tooltip-colour: #000000;
 	--tooltip-text: var(--spotify-green);
+
+	--percent-filled: var(--accent2);
+	--percent-empty: var(--on-card-colour);
+	--percent-text: var(--on-card-text)
 }
