@@ -71,7 +71,6 @@ export default {
 				{ headers: { Authorization: `Bearer ${this.api_token}` } }
 			)
 			.then((response) => {
-				console.log(response)
 				for (var key of this.data_wanted) {
 					this.data_points[key] = response.data[key]
 				};
