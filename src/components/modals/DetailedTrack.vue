@@ -114,36 +114,41 @@ export default {
 .modal {
 	background-color: var(--modal-background);
 	border-radius: var(--corner-rounding);
+	padding: 0 15px 15px 15px;
+	overflow-y: auto;
 	max-height: 85%;
-	padding: 0 15px;
 	z-index: 11;
 	width: 90%;
 }
 
+h2 {
+	text-align: center;
+}
+
 .audio-features-container {
 	justify-content: space-evenly;
-	flex-direction: row;
+	flex-direction: column;
 	flex-wrap: wrap;
 	display: flex;
 }
 
 .audio-feature {
+	padding: 5px 5px 5px 27vw;
 	align-items: center;
 	display: flex;
-	padding: 5px;
 	margin: 5px;
-}
-
-div.separator {
-	background-color: var(--accent1);
-	height: 2px;
-	width: 100%;
 }
 
 @media only screen and (min-width: 768px) {
 	.modal {
-		width: 50%;
 		max-height: 75%;
+		width: 50%;
+	}
+	.audio-features-container {
+		flex-direction: row;
+	}
+	.audio-feature {
+		padding: 5px;
 	}
 }
 </style>
