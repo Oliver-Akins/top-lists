@@ -91,7 +91,7 @@ export default {
 					return this.track.popularity;
 				default:
 					return Math.round(value * 100);
-}
+			};
 		},
 	},
 }
