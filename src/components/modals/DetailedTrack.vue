@@ -7,11 +7,7 @@
 		>
 			<transition name="burst" @after-leave="$emit('close')">
 				<div v-if="content" class="modal">
-					<h2 class="center">Track Information</h2>
-					<div class="general-info">
-						SOME INFORMATION HERE
-					</div>
-					<div class="separator" />
+					<h2>"{{ track.name }}" Information</h2>
 					<div class="audio-features-container">
 						<div
 							v-for="name in data_wanted"
