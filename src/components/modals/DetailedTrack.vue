@@ -21,7 +21,7 @@
 						>
 							<percent
 								:size="40"
-								:progress="Math.round(value * 100)"
+								:progress="get_percentage(name)"
 								:color="css_var('--percent-filled')"
 								:empty-color="css_var('--percent-empty')"
 								:loading="!data_populated"
@@ -82,6 +82,21 @@ export default {
 			})
 			.catch(err => console.error(err))
 		})
+	},
+	methods: {
+		get_percentage(key) {
+			let value = this.data_points[key];
+
+			// Calculate data value
+			switch (key) {
+				case `loudness`:
+					return Math.round((10 ** (value / 10) * 100));
+				case `popularity`:
+					return this.track.popularity;
+				default:
+					return Math.round(value * 100);
+}
+		},
 	},
 }
 </script>
