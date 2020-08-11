@@ -14,7 +14,7 @@
 					<div class="separator" />
 					<div class="audio-features-container">
 						<div
-							v-for="(value, name) in data_points"
+							v-for="name in data_wanted"
 							:id="`${name}-container`"
 							:key="name"
 							class="audio-feature"
