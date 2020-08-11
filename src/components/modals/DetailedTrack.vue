@@ -57,9 +57,10 @@ export default {
 			`energy`,
 			`instrumentalness`,
 			`liveness`,
-			// `loudness`,
+			`loudness`,
 			`speechiness`,
-			`valence`
+			`valence`,
+			`popularity`,
 		],
 	}},
 	mounted() {
