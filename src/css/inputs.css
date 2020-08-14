@@ -28,6 +28,23 @@ input[type=number]:focus {
 }
 
 
+input[type=text] {
+	background-color: var(--input-background);
+	border-radius: var(--corner-rounding);
+	font-family: var(--fonts);
+	border-color: transparent;
+	color: var(--input-text);
+	border-style: solid;
+	border-width: 2px;
+	outline: none;
+	padding: 15px;
+	width: 90%;
+}
+input[type=text]:focus {
+	border-color: var(--input-active-border);
+}
+
+
 select {
 	background-color: var(--input-background);
 	border-radius: var(--corner-rounding);
@@ -43,4 +60,22 @@ select {
 select:hover { cursor: pointer; }
 select:active, select:focus {
 	border-color: var(--input-active-border);
+}
+
+
+textarea {
+	background-color: var(--textarea-background);
+	border-radius: var(--corner-rounding);
+	color: var(--textarea-text-colour);
+	border-color: transparent;
+	border-style: solid;
+	font-weight: bolder;
+	border-width: 2px;
+	margin: 10px;
+	outline: none;
+	padding: 5px;
+	width: 90%;
+}
+textarea:focus {
+	border-color: var(--textarea-border-colour);
 }
