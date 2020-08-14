@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import VTooltip from 'v-tooltip';
+import TextareaAutosize from 'vue-textarea-autosize';
 import VueEllipseProgress from 'vue-ellipse-progress';
 import App from './App.vue';
 
@@ -8,6 +9,7 @@ VTooltip.enabled = window.innerWidth > 768
 
 // Third-party plugins
 Vue.use(VTooltip);
+Vue.use(TextareaAutosize);
 Vue.use(VueEllipseProgress, `percent`);
 
 // global mixings
