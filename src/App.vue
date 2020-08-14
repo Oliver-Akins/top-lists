@@ -75,12 +75,13 @@ export default {
 @import "./css/inputs.css";
 
 html, body, .maximize_size {
-	width: 100%;
-	height: 100%;
-	margin: 0;
-	padding: 0;
-	overflow-x: hidden;
+	user-select: none !important;
 	font-family: var(--fonts);
+	overflow-x: hidden;
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	margin: 0;
 }
 
 body {
