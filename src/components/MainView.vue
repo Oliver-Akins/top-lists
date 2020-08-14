@@ -7,7 +7,7 @@
 			:token="get_token()"
 			:data_exists="data.length !== 0"
 			:is_track_data="config.type === 'Tracks'"
-			@playlist_export="handle_export"
+			@playlist_export="playlist_export_modal = true"
 			@data_request="get_data"
 		/>
 		<div v-if="error" class="error">{{ error }}</div>
@@ -19,14 +19,20 @@
 				:item="item"
 			/>
 		</div>
+		<PlaylistExport
+			v-if="playlist_export_modal"
+			:config="config"
+			@close="playlist_export_modal = false"
+		/>
 	</div>
 </template>
 
 <script>
 import * as axios from "axios";
-import ControlCard from "./ControlBar.vue";
-import ArtistCard from "./cards/Artist.vue";
-import TrackCard from "./cards/Track.vue";
+import ControlCard from "./ControlBar";
+import ArtistCard from "./cards/Artist";
+import TrackCard from "./cards/Track";
+import PlaylistExport from "./modals/PlaylistExport";
 
 export default {
 	name: `MainView`,
@@ -44,11 +50,13 @@ export default {
 		Control: ControlCard,
 		Track: TrackCard,
 		Artist: ArtistCard,
+		PlaylistExport: PlaylistExport,
 	},
 	data() { return {
 		config: {},
 		data: [],
 		error: ``,
+		playlist_export_modal: false,
 	};},
 	computed: {
 		items() {
@@ -59,9 +67,6 @@ export default {
 		get_token() {
 			let params = new URLSearchParams(window.location.hash.slice(1));
 			return params.get(`access_token`);
-		},
-		handle_export() {
-			console.log("Handling the export");
 		},
 		get_data(config) {
 			let url = `${this.api_url}/me/top/${config.type.toLowerCase()}`;
