@@ -7,7 +7,18 @@
 		>
 			<transition name="burst" @after-leave="$emit('close')">
 				<div v-if="content" class="modal">
-					<h2>"{{ track.name }}" Information</h2>
+					<h2 @click.self="show_all_feature_info = true">
+						"{{ track.name }}" Information
+						<div
+							class="release-date"
+						>
+							<span
+								v-tooltip="release_date_tooltip"
+							>
+								{{ track.album.release_date.replace(/-/g, `/`) }}
+							</span>
+						</div>
+					</h2>
 					<div class="audio-features-container">
 						<div
 							v-for="name in data_wanted"
@@ -35,21 +46,23 @@
 
 <script>
 import * as axios from "axios";
+import TrackAudioFeatureInfo from "./FeaturesInfo.vue";
 
 export default {
 	name: `DetailedTrackInfo`,
+	components: {},
 	props: {
 		track: {
 			type: Object,
 			required: true,
 		}
 	},
-	created() {},
 	data() { return {
 		container: false,
 		content: false,
+		show_feature_info: false,
+		show_all_feature_info: false,
 		data_populated: false,
-		tooltips: {},
 		data_points: {},
 		data_wanted: [
 			`acousticness`,
@@ -62,6 +75,20 @@ export default {
 			`valence`,
 			`popularity`,
 		],
+		months: {
+			"01": "January",
+			"02": "Febuary",
+			"03": "March",
+			"04": "April",
+			"05": "May",
+			"06": "June",
+			"07": "July",
+			"08": "August",
+			"09": "September",
+			"10": "October",
+			"11": "November",
+			"12": "December",
+		}
 	}},
 	mounted() {
 		this.$nextTick(function() {
@@ -78,6 +105,21 @@ export default {
 			})
 			.catch(err => console.error(err))
 		})
+	},
+	computed: {
+		release_date_tooltip() {
+			let parts = this.track.album.release_date.split(`-`);
+			switch (this.track.album.release_date_precision) {
+				case `year`:
+					return release[0];
+				case `month`:
+					return `${this.months[parts[1]]}, ${parts[0]}`
+				case `day`:
+					return `${this.months[parts[1]]} ${parts[2]}, ${parts[0]}`
+				default:
+					return ``;
+			};
+		},
 	},
 	methods: {
 		get_percentage(key) {
@@ -123,6 +165,13 @@ export default {
 
 h2 {
 	text-align: center;
+	position: relative;
+}
+
+.release-date {
+	position: absolute;
+	font-size: 0.6em;
+	width: 100%;
 }
 
 .audio-features-container {
