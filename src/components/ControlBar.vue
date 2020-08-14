@@ -168,27 +168,29 @@ export default {
 	},
 	mounted: function() {
 		this.$nextTick(function() {
-			axios.get(
-				`${this.api_url}/me`,
-				{ headers: { Authorization: `Bearer ${this.api_token}` } }
-			).then((response) => {
-				if (response.error) {
+			if (!(this.preview || this.dev)) {
+				axios.get(
+					`${this.api_url}/me`,
+					{ headers: { Authorization: `Bearer ${this.api_token}` } }
+				).then((response) => {
+					if (response.error && !(this.preview || this.dev)) {
+						window.location.hash = ``;
+						window.location.href = `${this.auth_redirect}?error=${encodeURI(response.error)}`;
+						return;
+					};
+					let data = response.data;
+
+					// Set the Vue user object
+					this.user.name = data.display_name;
+					this.user.image = data.images.length > 0 ? data.images[0].url : ``;
+
+				}).catch((err) => {
+					console.error(err)
 					window.location.hash = ``;
-					window.location.href = `${this.auth_redirect}?error=${encodeURI(response.error)}`;
+					window.location.href = `${this.auth_redirect}?error=${encodeURI(err)}`;;
 					return
-				}
-				let data = response.data;
-
-				// Set the Vue user object
-				this.user.name = data.display_name;
-				this.user.image = data.images.length > 0 ? data.images[0].url : ``;
-
-			}).catch((err) => {
-				console.error(err)
-				window.location.hash = ``;
-				window.location.href = `${this.auth_redirect}?error=${encodeURI(err)}`;;
-				return
-			})
+				})
+			};
 		});
 	}
 }
