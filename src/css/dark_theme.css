@@ -34,6 +34,10 @@
 	--button-background: var(--spotify-green);
 	--button-text: var(--spotify-black);
 
+	--textarea-background: var(--spotify-black);
+	--textarea-text-colour: var(--spotify-green);
+	--textarea-border-colour: var(--accent2);
+
 	--missing-picture-background: var(--background);
 	--missing-picture-foreground: var(--accent2);
 
