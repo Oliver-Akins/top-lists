@@ -71,7 +71,7 @@ export default {
 		get_data(config) {
 			let url = `${this.api_url}/me/top/${config.type.toLowerCase()}`;
 
-			let limit = config.limit || 10;
+			let limit = config.limit;
 
 			url += `?limit=${limit}&time_range=${config.duration}`;
 
