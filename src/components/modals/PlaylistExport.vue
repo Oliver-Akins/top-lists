@@ -33,7 +33,7 @@
 								<option :value="true">Public Playlist</option>
 							</select>
 							<button
-								:disabled="!create_button_enabled"
+								:disabled="!can_export"
 								@click.self="create_playlist()"
 							>
 								Create Playlist
@@ -83,6 +83,7 @@ export default {
 			id: null,
 			url: null,
 		},
+		exported_settings: null,
 	}},
 	mounted() {
 		let date = new Date();
@@ -94,9 +95,22 @@ export default {
 			this.container = true;
 		});
 	},
+	computed: {
+		can_export() {
+
+			// Spotify has a name length of 100 characters, ensure we don't error
+			if (this.name.length > 100) {
+				return false;
+			};
+
+			if (this.exported_settings) {
+
+			};
+			return true;
+		}
+	},
 	methods: {
 		create_playlist() {
-			this.create_button_enabled = false;
 
 			// Generate payload object
 			let payload = {
@@ -104,6 +118,8 @@ export default {
 				description: this.description,
 				public: this.is_public
 			};
+
+			this.exported_settings = payload;
 
 			// Create the Spotify playlist (no tracks yet)
 			axios.post(
