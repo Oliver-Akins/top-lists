@@ -9,6 +9,13 @@ button {
 	outline: none;
 }
 button:hover { cursor: pointer; }
+button[disabled] {
+	background-color: var(--button-disabled-background);
+	color: var(--button-disabled-text);
+}
+button[disabled]:hover {
+	cursor: default;
+}
 
 
 input[type=number] {

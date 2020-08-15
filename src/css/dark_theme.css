@@ -32,7 +32,9 @@
 	--input-active-border: var(--accent2);
 
 	--button-background: var(--spotify-green);
+	--button-disabled-background: #09682a;
 	--button-text: var(--spotify-black);
+	--button-disabled-text: var(--spotify-black);
 
 	--textarea-background: var(--spotify-black);
 	--textarea-text-colour: var(--spotify-green);
