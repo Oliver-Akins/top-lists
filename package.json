@@ -6,7 +6,7 @@
 		"listeners": "echo 'fs.inotify.max_user_watches=524288' | sudo tee -a /etc/sysctl.conf && sudo sysctl -p",
 		"serve": "vue-cli-service serve --copy",
 		"server": "npm run serve",
-		"build": "vue-cli-service build --modern",
+		"build": "vue-cli-service build --modern --mode development",
 		"lint": "vue-cli-service lint",
 		"deploy": "./deploy.sh"
 	},
