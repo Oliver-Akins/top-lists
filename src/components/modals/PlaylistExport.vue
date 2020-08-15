@@ -68,7 +68,11 @@ export default {
 			this.container = true;
 		});
 	},
-	methods: {},
+	methods: {
+		create_playlist() {
+			
+		},
+	},
 }
 </script>
 
