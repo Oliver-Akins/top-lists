@@ -3,7 +3,8 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"serve": "echo 'fs.inotify.max_user_watches=524288' | sudo tee -a /etc/sysctl.conf && sudo sysctl -p && vue-cli-service serve --copy",
+		"listeners": "echo 'fs.inotify.max_user_watches=524288' | sudo tee -a /etc/sysctl.conf && sudo sysctl -p",
+		"serve": "vue-cli-service serve --copy",
 		"server": "npm run serve",
 		"build": "vue-cli-service build --modern",
 		"lint": "vue-cli-service lint"
