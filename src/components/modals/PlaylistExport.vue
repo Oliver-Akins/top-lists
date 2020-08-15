@@ -23,7 +23,7 @@
 						<div class="input-row">
 							<textarea-autosize
 								v-model="description"
-								placeholder="Type something here..."
+								placeholder="Playlist Description"
 								:min-height="100"
 							/>
 						</div>
