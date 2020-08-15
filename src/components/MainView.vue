@@ -8,6 +8,7 @@
 			:data_exists="data.length !== 0"
 			:is_track_data="config.type === 'Tracks'"
 			@playlist_export="playlist_export_modal = true"
+			@user_id="user_id = $event"
 			@data_request="get_data"
 		/>
 		<div v-if="error" class="error">{{ error }}</div>
@@ -22,6 +23,7 @@
 		<PlaylistExport
 			v-if="playlist_export_modal"
 			:config="config"
+			:user_id="user_id"
 			@close="playlist_export_modal = false"
 		/>
 	</div>
@@ -57,6 +59,7 @@ export default {
 		data: [],
 		error: ``,
 		playlist_export_modal: false,
+		user_id: null,
 	};},
 	computed: {
 		items() {

@@ -183,6 +183,7 @@ export default {
 					// Set the Vue user object
 					this.user.name = data.display_name || data.id;
 					this.user.image = data.images.length > 0 ? data.images[0].url : ``;
+					this.$emit(`user_id`, data.id);
 
 				}).catch((err) => {
 					console.error(err)
