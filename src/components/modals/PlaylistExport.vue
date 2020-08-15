@@ -1,4 +1,4 @@
-<template id="pop-modal">
+<template>
 	<transition name="fade" @after-enter="content = true">
 		<div
 			v-if="container"
