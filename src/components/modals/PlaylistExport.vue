@@ -16,6 +16,9 @@
 								type="text"
 								name="Playlist Name"
 							>
+							<span class="char_counter">
+								{{ name.length }}/100
+							</span>
 						</div>
 						<div class="input-row">
 							<textarea-autosize
@@ -185,12 +188,24 @@ div.modal-form {
 	display: flex;
 }
 
+input#playlist-name {
+	padding-right: 80px;
+	font-size: 16px;
+}
+
 .input-row {
 	justify-content: space-evenly;
 	margin-bottom: 10px;
+	position: relative;
 	flex-wrap: wrap;
 	display: flex;
 	width: 100%;
+}
+
+.char_counter {
+	position: absolute;
+	bottom: 15px;
+	right: 15px;
 }
 
 button {
