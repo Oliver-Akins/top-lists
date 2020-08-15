@@ -11,10 +11,10 @@
 					<div class="modal-form">
 						<div class="input-row">
 							<input
-								type="text"
-								name="Playlist Name"
 								id="playlist-name"
 								v-model="name"
+								type="text"
+								name="Playlist Name"
 							>
 						</div>
 						<div class="input-row">
