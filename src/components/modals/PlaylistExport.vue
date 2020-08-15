@@ -58,7 +58,7 @@ export default {
 		let date = new Date();
 		let month = date.getMonth() + 1;
 		month = month < 10 ? `0${month}` : month;
-		this.name = `Top ${this.config.limit || 10} Tracks - ${date.getFullYear()}/${month}/${date.getDate()}`;
+		this.name = `Top ${this.config.limit || 10} - ${date.getFullYear()}/${month}/${date.getDate()}`;
 
 		this.$nextTick(function() {
 			this.container = true;
