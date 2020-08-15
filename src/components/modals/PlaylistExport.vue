@@ -45,7 +45,11 @@ export default {
 		config: {
 			type: Object,
 			required: true,
-		}
+		},
+		user_id: {
+			type: String,
+			required: true,
+		},
 	},
 	data() {return {
 		container: false,
