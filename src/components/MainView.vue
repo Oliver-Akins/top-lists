@@ -22,6 +22,7 @@
 		</div>
 		<PlaylistExport
 			v-if="playlist_export_modal"
+			:data="data"
 			:config="config"
 			:user_id="user_id"
 			@close="playlist_export_modal = false"
