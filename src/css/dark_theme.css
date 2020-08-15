@@ -46,5 +46,9 @@
 
 	--percent-filled: var(--accent2);
 	--percent-empty: var(--on-card-colour);
-	--percent-text: var(--on-card-text)
+	--percent-text: var(--on-card-text);
+
+	--scrollbar-background: #0f0f0f;
+	--scrollbar-handle: #4d4d4d;
+	--scrollbar-handle-hover: #5e5e5e;
 }
