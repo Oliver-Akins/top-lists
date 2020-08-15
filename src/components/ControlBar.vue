@@ -181,7 +181,7 @@ export default {
 					let data = response.data;
 
 					// Set the Vue user object
-					this.user.name = data.display_name;
+					this.user.name = data.display_name || data.id;
 					this.user.image = data.images.length > 0 ? data.images[0].url : ``;
 
 				}).catch((err) => {
