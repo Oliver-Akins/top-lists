@@ -124,7 +124,6 @@ export default {
 			})
 		},
 		populate_playlist() {
-			// POST /playlists/{playlist_id}/tracks
 			let payload = { uris: [] };
 
 			for (var track of this.data) {
