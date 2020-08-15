@@ -23,7 +23,13 @@ export default {
 		auth_base: `https://accounts.spotify.com/authorize`,
 		use_state: process.env.NODE_ENV === `production`,
 		client_id: `3a1795e9d55445b0aa0c05dd74c866fb`,
-		scopes: [ `user-top-read` ],
+		scopes: [
+			`user-top-read`,
+			`playlist-modify-public`,
+			`playlist-modify-private`,
+			`playlist-modify-public`,
+			`playlist-modify-private`,
+		],
 		show_dialog: process.env.NODE_ENV !== `production`,
 	}},
 	computed: {
