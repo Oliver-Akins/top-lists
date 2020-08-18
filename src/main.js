@@ -3,6 +3,12 @@ import VTooltip from 'v-tooltip';
 import TextareaAutosize from 'vue-textarea-autosize';
 import VueEllipseProgress from 'vue-ellipse-progress';
 import App from './App.vue';
+import {
+	AUTH_REDIRECT,
+	SPOTIFY_API_BASE,
+	STORAGE_KEYS,
+	HOME_PAGE
+} from './js/constants';
 
 Vue.config.productionTip = false;
 VTooltip.enabled = window.innerWidth > 768
@@ -15,8 +21,10 @@ Vue.use(VueEllipseProgress, `percent`);
 // global mixings
 Vue.mixin({
 	data() {return {
-		api_url: `https://api.spotify.com/v1`,
-		auth_redirect: process.env.NODE_ENV === `production` ? `https://oliver.akins.me/top-lists` : `http://localhost:8080`,
+		api_url: SPOTIFY_API_BASE,
+		auth_redirect: AUTH_REDIRECT,
+		storage_key: STORAGE_KEYS,
+		home_page: HOME_PAGE,
 	}},
 	computed: {
 		api_token() {
