@@ -41,12 +41,14 @@
 
 <script>
 // Import Components
+import Icon from "../Icon";
 import PopularityModal from "../modals/PopularityInfo.vue";
 
 export default {
 	name: `ArtistCard`,
 	components: {
-		PopularityModal: PopularityModal
+		PopularityModal: PopularityModal,
+		icon: Icon,
 	},
 	props: {
 		item: {
