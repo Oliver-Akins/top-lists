@@ -28,6 +28,11 @@ Vue.mixin({
 		css_var(var_name) {
 			return getComputedStyle(document.documentElement).getPropertyValue(var_name);
 		},
+		auth_expired() {
+			sessionStorage.removeItem(this.storage_key.token);
+			window.location.hash = ``;
+			window.location.href = this.auth_redirect;
+		},
 	},
 });
 
