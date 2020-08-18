@@ -46,7 +46,7 @@ export default {
 			if (this.use_state) {
 				let state = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 				params.push(`state=${state}`);
-				localStorage.setItem(`top-spotify-state`, state);
+				sessionStorage.setItem(this.storage_key.state, state);
 			};
 
 			return `${this.auth_base}?${params.join("&")}`;
