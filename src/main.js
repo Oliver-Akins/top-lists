@@ -20,8 +20,7 @@ Vue.mixin({
 	}},
 	computed: {
 		api_token() {
-			let params = new URLSearchParams(window.location.hash.slice(1));
-			return params.get(`access_token`);
+			return sessionStorage.getItem(this.storage_key.token);
 		},
 	},
 	methods: {
