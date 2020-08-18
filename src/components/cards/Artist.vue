@@ -9,8 +9,8 @@
 			<icon
 				v-else
 				type="notes"
-				:size="200"
-				:border="100"
+				:size="230"
+				:border="115"
 				:primary="css_var('--missing-picture-foreground')"
 				:background="css_var('--missing-picture-background')"
 			/>
