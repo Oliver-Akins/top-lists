@@ -54,7 +54,7 @@ export default {
 				return true;
 			};
 
-					return false
+			return false
 		}
 	}
 }
