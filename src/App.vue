@@ -37,32 +37,24 @@ export default {
 
 			if ( this.is_dev || this.is_preview ) { return true; };
 
-			// Check to ensure the authorization was a success
 			if (params.get(`access_token`)) {
+				if (sessionStorage.getItem(this.storage_key.state) === params.get(`state`)) {
+					console.info(`State compare success`)
 
-				// Check if we compare state
-				if (process.env.NODE_ENV === `production`) {
-
-					// Compare given state to localstorage state
-					let LS_state = localStorage.getItem(`top-spotify-state`);
-					if (LS_state == params.get(`state`)) {
-						console.info(`State compare success`)
-						return true
-					}
-					console.error(`State compare failed`)
-					return false
-				} else {
-					return true
-				}
-			} else {
-				let error = (new URLSearchParams(window.location.search.slice(1))).get(`error`)
-
-				// Authorization failed, error to the user
-				if (error !== null) {
+					// Modify sessionStorage
+					sessionStorage.setItem(this.storage_key.token, params.get(`access_token`));
+					sessionStorage.removeItem(this.storage_key.state);
 					window.location.hash = ``;
-				}
-				return false;
-			}
+				} else {
+					console.error(`State compare failed`);
+				};
+			};
+
+			if (sessionStorage.getItem(this.storage_key.token)) {
+				return true;
+			};
+
+					return false
 		}
 	}
 }
