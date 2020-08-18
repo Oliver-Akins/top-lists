@@ -92,10 +92,6 @@ export default {
 		preview: {
 			type: Boolean,
 			required: true,
-		},
-		token: {
-			type: String,
-			required: true,
 		}
 	},
 	components: {
