@@ -8827,7 +8827,7 @@ specifiers:
   '@vue/cli-service': ~4.4.0
   axios: ^0.19.2
   babel-eslint: ^10.1.0
-  core-js: '3'
+  core-js: ^3.6.5
   eslint: ^6.7.2
   eslint-plugin-vue: ^6.2.2
   v-tooltip: ^2.0.3
