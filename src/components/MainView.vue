@@ -86,6 +86,7 @@ export default {
 				if (err.response.status == 401) {
 					return this.auth_expired(err);
 				};
+				console.error(err);
 			});
 		},
 	}
