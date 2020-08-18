@@ -121,6 +121,5 @@ export default {
 	vertical-align: middle;
 	display: inline-flex;
 	align-items: center;
-	margin-right: 5px;
 }
 </style>

@@ -228,6 +228,10 @@ img.profile_image {
 	border-radius: 50%;
 }
 
+div#user_data > div {
+	margin-right: 5px;
+}
+
 @media only screen and (min-width: 768px) {
 	#control {
 		flex-direction: row;
