@@ -4,7 +4,6 @@
 			:dev="dev_mode"
 			:preview="preview_mode"
 			:auth_redirect="auth_redirect"
-			:token="get_token()"
 			:data_exists="data.length !== 0"
 			:is_track_data="config.type === 'Tracks'"
 			@playlist_export="playlist_export_modal = true"
@@ -68,10 +67,6 @@ export default {
 		}
 	},
 	methods: {
-		get_token() {
-			let params = new URLSearchParams(window.location.hash.slice(1));
-			return params.get(`access_token`);
-		},
 		get_data(config) {
 			let url = `${this.api_url}/me/top/${config.type.toLowerCase()}`;
 
@@ -81,7 +76,7 @@ export default {
 
 			axios.get(
 				url,
-				{ headers: { Authorization: `Bearer ${this.get_token()}` } }
+				{ headers: { Authorization: `Bearer ${this.api_token}` } }
 			).then((response) => {
 				this.error = ``;
 				this.config = config;
