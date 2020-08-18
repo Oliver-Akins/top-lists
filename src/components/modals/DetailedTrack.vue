@@ -103,7 +103,11 @@ export default {
 				};
 				this.data_populated = true;
 			})
-			.catch(err => console.error(err))
+			.catch(err => {
+				if (err.status == 401) {
+					this.auth_expired();
+				};
+			});
 		})
 	},
 	computed: {

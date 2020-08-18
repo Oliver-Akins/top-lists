@@ -182,10 +182,9 @@ export default {
 					this.$emit(`user_id`, data.id);
 
 				}).catch((err) => {
-					console.error(err)
-					window.location.hash = ``;
-					window.location.href = `${this.auth_redirect}?error=${encodeURI(err)}`;;
-					return
+					if (err.status == 401) {
+						this.auth_expired();
+					};
 				})
 			};
 		});

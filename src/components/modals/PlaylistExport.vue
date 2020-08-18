@@ -136,10 +136,9 @@ export default {
 				this.populate_playlist()
 			})
 			.catch((err) => {
-				console.error(err)
-				window.location.hash = ``;
-				window.location.href = `${this.auth_redirect}?error=${encodeURI(err)}`;;
-				return
+				if (err.status == 401) {
+					this.auth_expired();
+				};
 			})
 		},
 		populate_playlist() {
@@ -162,10 +161,9 @@ export default {
 				this.success = true;
 			})
 			.catch((err) => {
-				console.error(err)
-				window.location.hash = ``;
-				window.location.href = `${this.auth_redirect}?error=${encodeURI(err)}`;;
-				return;
+				if (err.status == 401) {
+					this.auth_expired();
+				};
 			})
 		},
 	},

@@ -82,7 +82,10 @@ export default {
 				this.config = config;
 				this.data = response.data.items;
 			}).catch((err) => {
-				this.error = `${err.name}: ${err.message}`
+				this.error = `${err.name}: ${err.message}`;
+				if (err.status == 401) {
+					this.auth_expired();
+				};
 			});
 		},
 	}
