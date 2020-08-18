@@ -104,8 +104,8 @@ export default {
 				this.data_populated = true;
 			})
 			.catch(err => {
-				if (err.status == 401) {
-					this.auth_expired();
+				if (err.response.status == 401) {
+					return this.auth_expired(err);
 				};
 			});
 		})

@@ -136,8 +136,8 @@ export default {
 				this.populate_playlist()
 			})
 			.catch((err) => {
-				if (err.status == 401) {
-					this.auth_expired();
+				if (err.response.status == 401) {
+					return this.auth_expired(err);
 				};
 			})
 		},
@@ -161,8 +161,8 @@ export default {
 				this.success = true;
 			})
 			.catch((err) => {
-				if (err.status == 401) {
-					this.auth_expired();
+				if (err.response.status == 401) {
+					return this.auth_expired(err);
 				};
 			})
 		},

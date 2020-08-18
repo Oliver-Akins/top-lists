@@ -182,8 +182,8 @@ export default {
 					this.$emit(`user_id`, data.id);
 
 				}).catch((err) => {
-					if (err.status == 401) {
-						this.auth_expired();
+					if (err.response.status == 401) {
+						return this.auth_expired(err);
 					};
 				})
 			};

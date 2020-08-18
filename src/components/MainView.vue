@@ -83,8 +83,8 @@ export default {
 				this.data = response.data.items;
 			}).catch((err) => {
 				this.error = `${err.name}: ${err.message}`;
-				if (err.status == 401) {
-					this.auth_expired();
+				if (err.response.status == 401) {
+					return this.auth_expired(err);
 				};
 			});
 		},

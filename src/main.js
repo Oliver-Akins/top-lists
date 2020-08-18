@@ -35,10 +35,14 @@ Vue.mixin({
 		css_var(var_name) {
 			return getComputedStyle(document.documentElement).getPropertyValue(var_name);
 		},
-		auth_expired() {
+		auth_expired(error = null) {
 			sessionStorage.removeItem(this.storage_key.token);
 			window.location.hash = ``;
-			window.location.href = this.auth_redirect;
+			if (error) {
+				window.location.href = `${this.home_page}?error=${error}`;
+			} else {
+				window.location.href = this.home_page;
+			};
 		},
 	},
 });
