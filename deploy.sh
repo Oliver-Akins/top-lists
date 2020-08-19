@@ -4,13 +4,13 @@
 set -e
 
 # build
-vue-cli-service build --modern
+pnpm run prod_build
 
 # navigate into the build output directory
 cd dist
 
 # if you are deploying to a custom domain
-echo 'oliver.akins.me' > CNAME
+# echo 'oliver.akins.me' > CNAME
 
 git init
 git add -A
