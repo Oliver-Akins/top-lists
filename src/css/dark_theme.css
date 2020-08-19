@@ -9,6 +9,11 @@
 	--error: #ff0000;
 	--error-background: #ff00005d;
 
+	--success: var(--accent2);
+	--success-background: #00aa0083;
+	--success-text: var(--on-card-colour);
+	--success-accent: var(--accent2);
+
 	--background: #23272A;
 	--background-text: var(--spotify-white);
 

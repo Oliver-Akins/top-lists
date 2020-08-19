@@ -229,9 +229,24 @@ input#playlist-name {
 	right: 15px;
 }
 
+.success {
+	background-color: var(--success-background);
+	border-radius: var(--corner-rounding);
+	border-color: var(--success);
+	color: var(--success-text);
+	border-style: solid;
+	margin-bottom: 5px;
+	border-width: 2px;
+}
+
+.success a {
+	color: var(--success-accent);
+}
+
 button {
 	margin: 10px;
 }
+
 
 @media only screen and (min-width: 768px) {
 	.modal {
