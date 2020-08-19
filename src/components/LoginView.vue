@@ -3,14 +3,18 @@
 		<div class="card">
 			<div
 				v-if="error"
-				class="error"
+				class="alert error"
 			>
 				{{ error }}
 			</div>
 			<a :href="spotify_auth_url">
 				<button>Login With Spotify</button>
 			</a>
-			<p class="alert"> {{ alert }} </p>
+			<p class="alert">
+				This website will be able to see your top artists and tracks,
+				and make both public and private playlists on your behalf. This
+				is all done in your web browser.
+			</p>
 		</div>
 	</div>
 </template>
@@ -19,7 +23,6 @@
 export default {
 	name: 'LoginView',
 	data() { return {
-		alert: `We will only be able to access your top tracks and artists, nothing else. This is also only done on your browser. Our servers do not see any of the data from your account.`,
 		auth_base: `https://accounts.spotify.com/authorize`,
 		use_state: true,
 		client_id: `3a1795e9d55445b0aa0c05dd74c866fb`,
@@ -92,8 +95,8 @@ button:hover { cursor: pointer; }
 
 
 .alert {
-	margin-bottom: 0px;
-	margin-top: 15px;
+	margin-bottom: 10px;
+	padding: 5px;
 }
 
 
@@ -103,7 +106,6 @@ button:hover { cursor: pointer; }
 	border-color: var(--error);
 	color: var(--error-text);
 	border-style: solid;
-	margin-bottom: 15px;
 	border-width: 2px;
 }
 </style>
