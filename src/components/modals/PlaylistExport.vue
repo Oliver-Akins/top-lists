@@ -96,6 +96,13 @@ export default {
 		});
 	},
 	computed: {
+		payload() {
+			return {
+				name: this.name,
+				description: this.description,
+				public: this.is_public,
+			};
+		},
 		can_export() {
 
 			// Spotify has a name length of 100 characters, ensure we don't error
@@ -104,7 +111,11 @@ export default {
 			};
 
 			if (this.exported_settings) {
-
+				return (
+					this.payload.name != this.exported_settings.name
+					|| this.payload.description != this.exported_settings.description
+					|| this.payload.is_public != this.exported_settings.is_public
+				)
 			};
 			return true;
 		}
@@ -112,13 +123,7 @@ export default {
 	methods: {
 		create_playlist() {
 
-			// Generate payload object
-			let payload = {
-				name: this.name,
-				description: this.description,
-				public: this.is_public
-			};
-
+			let payload = this.payload
 			this.exported_settings = payload;
 
 			// Create the Spotify playlist (no tracks yet)
