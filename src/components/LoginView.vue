@@ -101,8 +101,8 @@ button:hover { cursor: pointer; }
 	background-color: var(--error-background);
 	border-radius: var(--corner-rounding);
 	border-color: var(--error);
+	color: var(--error-text);
 	border-style: solid;
-	color: var(--error);
 	margin-bottom: 15px;
 	border-width: 2px;
 }
