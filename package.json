@@ -7,8 +7,8 @@
 		"serve": "vue-cli-service serve --copy",
 		"server": "npm run serve",
 		"build": "vue-cli-service build --modern --mode development",
-		"lint": "vue-cli-service lint",
-		"deploy": "./deploy.sh"
+		"prod_build": "vue-cli-service build --modern",
+		"lint": "vue-cli-service lint"
 	},
 	"dependencies": {
 		"axios": "^0.19.2",
