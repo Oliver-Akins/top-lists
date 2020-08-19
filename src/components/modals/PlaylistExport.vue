@@ -163,7 +163,6 @@ export default {
 				} }
 			)
 			.then(response => {
-				alert(`Playlist created successfully.`);
 				this.success = true;
 			})
 			.catch((err) => {
@@ -235,8 +234,9 @@ input#playlist-name {
 	border-color: var(--success);
 	color: var(--success-text);
 	border-style: solid;
-	margin-bottom: 5px;
+	margin-bottom: 10px;
 	border-width: 2px;
+	padding: 5px;
 }
 
 .success a {
