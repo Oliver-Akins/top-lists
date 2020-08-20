@@ -108,4 +108,10 @@ button:hover { cursor: pointer; }
 	border-style: solid;
 	border-width: 2px;
 }
+
+@media only screen and (min-width: 768px) {
+	.card {
+		width: 90%;
+	}
+}
 </style>

@@ -1,5 +1,5 @@
 <template>
-	<div class="card" @click="show_track_info = true">
+	<div class="card" @click.stop="show_track_info = true">
 		<div class="image">
 			<img
 				v-if="item.album.images.length !== 0"
