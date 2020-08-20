@@ -77,7 +77,7 @@ export default {
 	background-color: var(--card-colour);
 	color: var(--spotify-green);
 	text-align: center;
-	padding: 30px;
+	padding: 15px;
 	width: 90%;
 }
 
@@ -111,6 +111,7 @@ button:hover { cursor: pointer; }
 
 @media only screen and (min-width: 768px) {
 	.card {
+		padding: 30px;
 		width: 33%;
 	}
 }
