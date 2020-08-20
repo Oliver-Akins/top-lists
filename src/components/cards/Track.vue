@@ -24,7 +24,7 @@
 		<div
 			v-tooltip.auto="popularity_tooltip"
 			class="popularity corner"
-			@click.self="show_pop_modal = true"
+			@click.self.stop="show_pop_modal = true"
 		>
 			{{ item.popularity }}
 		</div>
