@@ -78,7 +78,7 @@ export default {
 	color: var(--spotify-green);
 	text-align: center;
 	padding: 30px;
-	width: 33%;
+	width: 90%;
 }
 
 button {
@@ -111,7 +111,7 @@ button:hover { cursor: pointer; }
 
 @media only screen and (min-width: 768px) {
 	.card {
-		width: 90%;
+		width: 33%;
 	}
 }
 </style>
