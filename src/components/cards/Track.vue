@@ -1,5 +1,5 @@
 <template>
-	<div class="card" @click.stop="show_track_info = true">
+	<div class="card" @click="show_track_info = true">
 		<div class="image">
 			<img
 				v-if="item.album.images.length !== 0"
@@ -24,7 +24,7 @@
 		<div
 			v-tooltip.auto="popularity_tooltip"
 			class="popularity corner"
-			@click.self="show_pop_modal = true"
+			@click.self.stop="show_pop_modal = true"
 		>
 			{{ item.popularity }}
 		</div>

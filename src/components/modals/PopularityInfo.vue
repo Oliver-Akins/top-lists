@@ -3,7 +3,7 @@
 		<div
 			v-if="container"
 			class="modal-container"
-			@click.self="content = false"
+			@click.self.stop="content = false"
 		>
 			<transition name="burst" @after-leave="$emit('close')">
 				<div v-if="content" class="modal">
