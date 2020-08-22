@@ -2,15 +2,15 @@
 	<div id="icon" :style="div_styles">
 		<span v-if="type === 'notes'" :style="span_styles">
 			<svg
-				:width="inner_size"
-				:height="inner_size"
+				:width="innerSize"
+				:height="innerSize"
 				viewBox="0 0 24 24"
 				fill="none"
 				xmlns="http://www.w3.org/2000/svg"
 			>
 				<rect
-					:width="inner_size"
-					:height="inner_size"
+					:width="innerSize"
+					:height="innerSize"
 					fill="none"
 					rx="0"
 					ry="0"
@@ -25,15 +25,15 @@
 		</span>
 		<span v-else-if="type === 'note_filled'" :style="span_styles">
 			<svg
-				:width="inner_size"
-				:height="inner_size"
+				:width="innerSize"
+				:height="innerSize"
 				viewBox="0 0 24 24"
 				fill="none"
 				xmlns="http://www.w3.org/2000/svg"
 			>
 				<rect
-					:width="inner_size"
-					:height="inner_size"
+					:width="innerSize"
+					:height="innerSize"
 					fill="none"
 					rx="0"
 					ry="0"
@@ -48,12 +48,12 @@
 		</span>
 		<span v-else-if="type === 'palette'" :style="span_styles">
 			<svg
-				:width="inner_size"
-				:height="inner_size"
+				:width="innerSize"
+				:height="innerSize"
 			>
 				<rect
-					:width="inner_size"
-					:height="inner_size"
+					:width="innerSize"
+					:height="innerSize"
 					fill="none"
 					rx="0"
 					ry="0"
@@ -68,15 +68,15 @@
 		</span>
 		<span v-else-if="type === 'info'" :style="span_styles">
 			<svg
-				:width="inner_size"
-				:height="inner_size"
+				:width="innerSize"
+				:height="innerSize"
 				viewBox="0 0 24 24"
 				fill="none"
 				xmlns="http://www.w3.org/2000/svg"
 			>
 				<rect
-					:width="inner_size"
-					:height="inner_size"
+					:width="innerSize"
+					:height="innerSize"
 					fill="none"
 					rx="0"
 					ry="0"
@@ -114,7 +114,7 @@ export default {
 			default: 25,
 			required: false,
 		},
-		inner_size: {
+		innerSize: {
 			type: Number,
 			default: null,
 			required: false,
@@ -140,10 +140,10 @@ export default {
 	}},
 	computed: {
 		span_styles() {
-			if (this.inner_size) {
+			if (this.innerSize) {
 				return {
-					"width": `${this.inner_size}px`,
-					"height": `${this.inner_size}px`,
+					"width": `${this.innerSize}px`,
+					"height": `${this.innerSize}px`,
 				}
 			}
 			let x = Math.floor(this.size * 0.6);
