@@ -21,18 +21,29 @@
 				{{ item.artists.map(x => x.name).join(`, `) }}
 			</div>
 		</div>
-		<div
-			v-tooltip.auto="popularity_tooltip"
-			class="popularity corner"
-			@click.self.stop="show_pop_modal = true"
-		>
-			{{ item.popularity }}
-		</div>
-		<div
-			v-tooltip.auto="duration_tooltip"
-			class="duration corner"
-		>
-			{{ duration }}
+		<div class="bottom-bar">
+			<div class="popularity">
+				{{ item.popularity }}
+			</div>
+			<div class="share">
+				<icon
+					type="share"
+					:size="25"
+					:inner-size="25"
+					:primary="css_var('--card-bottom-row-icon-colour')"
+				/>
+			</div>
+			<div class="information">
+				<icon
+					type="info"
+					:size="25"
+					:inner-size="25"
+					:primary="css_var('--card-bottom-row-icon-colour')"
+				/>
+			</div>
+			<div class="duration">
+				{{ duration }}
+			</div>
 		</div>
 		<PopularityModal
 			v-if="show_pop_modal"
@@ -48,6 +59,7 @@
 
 <script>
 // Import Components
+import Icon from "../Icon";
 import PopularityModal from "../modals/PopularityInfo.vue";
 import DetailedTrackModal from "../modals/DetailedTrack.vue";
 
@@ -56,6 +68,7 @@ export default {
 	components: {
 		PopularityModal: PopularityModal,
 		TrackInfo: DetailedTrackModal,
+		icon: Icon,
 	},
 	props: {
 		item: {
@@ -100,7 +113,6 @@ export default {
 .card {
 	border-radius: var(--corner-rounding);
 	background-color: var(--card-colour);
-	padding: 10px 10px 1.75em;
 	color: var(--card-text);
 	flex-direction: column;
 	align-items: center;
@@ -108,6 +120,7 @@ export default {
 	position: relative;
 	margin: 5px auto;
 	display: flex;
+	padding: 10px;
 	width: 90%;
 }
 
@@ -116,6 +129,14 @@ img {
 	--size: 230px;
 	width: var(--size);
 	height: var(--size);
+}
+
+.track-info {
+	justify-content: center;
+	flex-direction: column;
+	margin-bottom: 1.25em;
+	display: flex;
+	height: 100%;
 }
 
 .title {
@@ -128,27 +149,49 @@ img {
 	font-size: smaller;
 }
 
-.corner {
-	background-color: var(--on-card-colour);
-	color: var(--on-card-text);
+.bottom-bar {
+	border-radius: 0 0 var(--corner-rounding) var(--corner-rounding);
+	background-color: var(--card-bottom-row-background);
+	color: var(--card-bottom-row-text-colour);
+	justify-content: space-between;
 	position: absolute;
-	padding: 1px 6px;
+	padding-right: 5%;
+	padding-left: 5%;
+	display: flex;
+	width: 90%;
+	bottom: 0;
 }
 
-.popularity {
-	border-radius: 0 var(--corner-rounding) 0 var(--corner-rounding);
-	bottom: 0;
-	left: 0;
+/* Setting the growth and alignments of the bottom bar buttons */
+.bottom-bar > div {
+	border-color: var(--card-bottom-row-divider-colour);
+	padding-bottom: 2px;
+	padding-top: 2px;
 }
-.popularity:hover {
-	cursor: pointer;
+.bottom-bar > :nth-child(1) {
+	border-right-style: solid;
+	border-width: 2px;
+	flex-grow: 1;
+}
+.bottom-bar > :nth-child(2) {
+	border-right-style: solid;
+	text-align: center;
+	border-width: 1px;
+	flex-grow: 2;
+}
+.bottom-bar > :nth-child(3) {
+	border-left-style: solid;
+	text-align: center;
+	border-width: 1px;
+	flex-grow: 2;
+}
+.bottom-bar > :nth-child(4) {
+	border-left-style: solid;
+	text-align: right;
+	border-width: 2px;
+	flex-grow: 1;
 }
 
-.duration {
-	border-radius: var(--corner-rounding) 0 var(--corner-rounding) 0;
-	bottom: 0;
-	right: 0;
-}
 
 @media only screen and (min-width: 768px) {
 	.card {
