@@ -23,7 +23,7 @@
 	--card-text: #ffffff80;
 
 	--on-card-colour: #4c4c4c;
-	--on-card-text: var(--spotify-green);
+	--on-card-text: var(--accent2);
 
 	--modal-container-background: #0e0f10eb;
 	--modal-background: var(--card-colour);
