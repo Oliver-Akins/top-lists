@@ -38,6 +38,7 @@
 	--input-text: var(--spotify-green);
 	--input-active-border: var(--accent2);
 
+	--button-hover-background: var(--accent2);
 	--button-background: var(--spotify-green);
 	--button-disabled-background: #09682a;
 	--button-text: var(--spotify-black);
