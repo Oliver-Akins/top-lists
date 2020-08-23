@@ -10,19 +10,19 @@
 					<h2 class="center">Track Sharing</h2>
 					<div class="share-buttons">
 						<button
-							@click="copy_link(track.external_urls.spotify)"
+							@click="copy_text(track.external_urls.spotify)"
 						>
 							Copy Track Link
 						</button>
 						<button
-							@click="copy_link(track.album.external_urls.spotify)"
+							@click="copy_text(track.album.external_urls.spotify)"
 						>
 							Copy Album Link
 						</button>
 						<button
 							v-for="artist in track.artists"
 							:key="artist.uri"
-							@click="copy_link(artist.external_urls.spotify)"
+							@click="copy_text(artist.external_urls.spotify)"
 						>
 							Copy {{ artist.name }}'s Link
 						</button>
