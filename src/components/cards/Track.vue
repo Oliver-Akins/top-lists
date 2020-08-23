@@ -1,5 +1,5 @@
 <template>
-	<div class="card" @click="show_track_info = true">
+	<div class="card">
 		<div class="image">
 			<img
 				v-if="item.album.images.length !== 0"
@@ -21,18 +21,46 @@
 				{{ item.artists.map(x => x.name).join(`, `) }}
 			</div>
 		</div>
-		<div
-			v-tooltip.auto="popularity_tooltip"
-			class="popularity corner"
-			@click.self.stop="show_pop_modal = true"
-		>
-			{{ item.popularity }}
-		</div>
-		<div
-			v-tooltip.auto="duration_tooltip"
-			class="duration corner"
-		>
-			{{ duration }}
+		<div class="bottom-bar">
+			<button
+				class="popularity"
+				v-tooltip="popularity_tooltip"
+				@click="show_pop_modal = true"
+			>
+				{{ item.popularity }}
+			</button>
+			<button
+				class="share"
+				name="Share"
+				v-tooltip="share_tooltip"
+				@click="show_share_modal = true"
+			>
+				<icon
+					type="share"
+					:size="22"
+					:inner-size="22"
+					:primary="css_var('--card-bottom-row-icon-colour')"
+				/>
+			</button>
+			<button
+				class="information"
+				name="Track Information"
+				v-tooltip="info_tooltip"
+				@click="show_track_info = true"
+			>
+				<icon
+					type="info"
+					:size="22"
+					:inner-size="22"
+					:primary="css_var('--card-bottom-row-icon-colour')"
+				/>
+			</button>
+			<div
+				class="duration"
+				v-tooltip="duration_tooltip"
+			>
+				{{ duration }}
+			</div>
 		</div>
 		<PopularityModal
 			v-if="show_pop_modal"
@@ -43,19 +71,28 @@
 			:track="item"
 			@close="show_track_info = false"
 		/>
+		<Sharing
+			v-if="show_share_modal"
+			:track="item"
+			@close="show_share_modal = false"
+		/>
 	</div>
 </template>
 
 <script>
 // Import Components
-import PopularityModal from "../modals/PopularityInfo.vue";
-import DetailedTrackModal from "../modals/DetailedTrack.vue";
+import Icon from "../Icon";
+import ShareModal from "../modals/ShareTrack";
+import PopularityModal from "../modals/PopularityInfo";
+import DetailedTrackModal from "../modals/DetailedTrack";
 
 export default {
 	name: `TrackCard`,
 	components: {
 		PopularityModal: PopularityModal,
 		TrackInfo: DetailedTrackModal,
+		Sharing: ShareModal,
+		icon: Icon,
 	},
 	props: {
 		item: {
@@ -66,8 +103,11 @@ export default {
 	data() { return {
 		duration_tooltip: `Song Duration`,
 		popularity_tooltip: `Song Popularity`,
+		info_tooltip: `Audio Features`,
+		share_tooltip: `Share`,
 		show_pop_modal: false,
 		show_track_info: false,
+		show_share_modal: false,
 	}},
 	computed: {
 		duration() {
@@ -100,7 +140,6 @@ export default {
 .card {
 	border-radius: var(--corner-rounding);
 	background-color: var(--card-colour);
-	padding: 10px 10px 1.75em;
 	color: var(--card-text);
 	flex-direction: column;
 	align-items: center;
@@ -108,6 +147,7 @@ export default {
 	position: relative;
 	margin: 5px auto;
 	display: flex;
+	padding: 10px;
 	width: 90%;
 }
 
@@ -116,6 +156,14 @@ img {
 	--size: 230px;
 	width: var(--size);
 	height: var(--size);
+}
+
+.track-info {
+	justify-content: center;
+	flex-direction: column;
+	margin-bottom: 25px;
+	display: flex;
+	height: 100%;
 }
 
 .title {
@@ -128,27 +176,75 @@ img {
 	font-size: smaller;
 }
 
-.corner {
-	background-color: var(--on-card-colour);
-	color: var(--on-card-text);
+.bottom-bar {
+	border-radius: 0 0 var(--corner-rounding) var(--corner-rounding);
+	background-color: var(--card-bottom-row-background);
+	color: var(--card-bottom-row-text-colour);
+	justify-content: space-between;
 	position: absolute;
-	padding: 1px 6px;
+	display: flex;
+	width: 100%;
+	bottom: 0;
+}
+.bottom-bar > button {
+	background-color: var(--card-bottom-row-background);
+	color: var(--card-bottom-row-text-colour);
+	font-size: initial;
+	padding: 0;
 }
 
-.popularity {
-	border-radius: 0 var(--corner-rounding) 0 var(--corner-rounding);
-	bottom: 0;
-	left: 0;
-}
-.popularity:hover {
+
+.popularity { cursor: pointer; }
+.popularity:hover { background-color: var(--card-bottom-row-hover-background); }
+
+.information, .share {
+	justify-content: center;
+	align-items: center;
 	cursor: pointer;
+	display: flex;
+}
+.information:hover, .share:hover {
+	background-color: var(--card-bottom-row-hover-background);
 }
 
-.duration {
-	border-radius: var(--corner-rounding) 0 var(--corner-rounding) 0;
-	bottom: 0;
-	right: 0;
+
+/* Setting the growth and alignments of the bottom bar buttons */
+.bottom-bar > * {
+	border-color: var(--card-bottom-row-divider-colour);
+	padding-bottom: 2px;
+	padding-top: 2px;
 }
+.bottom-bar > :nth-child(1) {
+	border-radius: 0 0 0 var(--corner-rounding);
+	border-right-style: solid;
+	border-right-width: 2px;
+	padding-left: 5%;
+	text-align: left;
+	flex-grow: 1;
+}
+.bottom-bar > :nth-child(2) {
+	border-radius: 0;
+	border-right-style: solid;
+	border-right-width: 1px;
+	text-align: center;
+	flex-grow: 2;
+}
+.bottom-bar > :nth-child(3) {
+	border-radius: 0;
+	border-left-style: solid;
+	border-left-width: 1px;
+	text-align: center;
+	flex-grow: 2;
+}
+.bottom-bar > :nth-child(4) {
+	border-radius: 0 0 var(--corner-rounding) 0;
+	border-left-style: solid;
+	border-left-width: 2px;
+	padding-right: 5%;
+	text-align: right;
+	flex-grow: 1;
+}
+
 
 @media only screen and (min-width: 768px) {
 	.card {

@@ -2,15 +2,15 @@
 	<div id="icon" :style="div_styles">
 		<span v-if="type === 'notes'" :style="span_styles">
 			<svg
-				:width="inner_size"
-				:height="inner_size"
+				:width="innerSize"
+				:height="innerSize"
 				viewBox="0 0 24 24"
 				fill="none"
 				xmlns="http://www.w3.org/2000/svg"
 			>
 				<rect
-					:width="inner_size"
-					:height="inner_size"
+					:width="innerSize"
+					:height="innerSize"
 					fill="none"
 					rx="0"
 					ry="0"
@@ -25,15 +25,15 @@
 		</span>
 		<span v-else-if="type === 'note_filled'" :style="span_styles">
 			<svg
-				:width="inner_size"
-				:height="inner_size"
+				:width="innerSize"
+				:height="innerSize"
 				viewBox="0 0 24 24"
 				fill="none"
 				xmlns="http://www.w3.org/2000/svg"
 			>
 				<rect
-					:width="inner_size"
-					:height="inner_size"
+					:width="innerSize"
+					:height="innerSize"
 					fill="none"
 					rx="0"
 					ry="0"
@@ -48,12 +48,12 @@
 		</span>
 		<span v-else-if="type === 'palette'" :style="span_styles">
 			<svg
-				:width="inner_size"
-				:height="inner_size"
+				:width="innerSize"
+				:height="innerSize"
 			>
 				<rect
-					:width="inner_size"
-					:height="inner_size"
+					:width="innerSize"
+					:height="innerSize"
 					fill="none"
 					rx="0"
 					ry="0"
@@ -68,15 +68,15 @@
 		</span>
 		<span v-else-if="type === 'info'" :style="span_styles">
 			<svg
-				:width="inner_size"
-				:height="inner_size"
+				:width="innerSize"
+				:height="innerSize"
 				viewBox="0 0 24 24"
 				fill="none"
 				xmlns="http://www.w3.org/2000/svg"
 			>
 				<rect
-					:width="inner_size"
-					:height="inner_size"
+					:width="innerSize"
+					:height="innerSize"
 					fill="none"
 					rx="0"
 					ry="0"
@@ -85,6 +85,29 @@
 					fill-rule="evenodd"
 					clip-rule="evenodd"
 					d="M2 12C2 6.49 6.49 2 12 2C17.51 2 22 6.49 22 12C22 17.51 17.51 22 12 22C6.49 22 2 17.51 2 12ZM4 12C4 16.41 7.59 20 12 20C16.41 20 20 16.41 20 12C20 7.59 16.41 4 12 4C7.59 4 4 7.59 4 12ZM12 9C12.5523 9 13 8.55228 13 8C13 7.44772 12.5523 7 12 7C11.4477 7 11 7.44772 11 8C11 8.55228 11.4477 9 12 9ZM12 10C11.45 10 11 10.45 11 11V16C11 16.55 11.45 17 12 17C12.55 17 13 16.55 13 16V11C13 10.45 12.55 10 12 10Z" :fill="primary"
+				/>
+			</svg>
+		</span>
+		<span v-if="type === 'share'" :style="span_styles">
+			<svg
+				:width="innerSize"
+				:height="innerSize"
+				viewBox="0 0 24 24"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<rect
+					:width="innerSize"
+					:height="innerSize"
+					fill="none"
+					rx="0"
+					ry="0"
+				/>
+				<path
+					fill-rule="evenodd"
+					clip-rule="evenodd"
+					d="M17 10C19.2091 10 21 8.20914 21 6C21 3.79086 19.2091 2 17 2C14.7909 2 13 3.79086 13 6C13 6.44376 13.0723 6.87064 13.2057 7.26952L9.90706 9.25245C9.17789 8.48121 8.14514 8 7 8C4.79086 8 3 9.79086 3 12C3 14.2091 4.79086 16 7 16C8.14608 16 9.17958 15.518 9.90885 14.7457L13.2074 16.7252C13.0729 17.1256 13 17.5543 13 18C13 20.2091 14.7909 22 17 22C19.2091 22 21 20.2091 21 18C21 15.7909 19.2091 14 17 14C15.8535 14 14.8197 14.4823 14.0904 15.2551L10.7922 13.2758C10.927 12.8751 11 12.4461 11 12C11 11.5527 10.9266 11.1226 10.7911 10.721L14.0861 8.74027C14.8156 9.51576 15.8513 10 17 10ZM19.8 18C19.8 19.5464 18.5464 20.8 17 20.8C15.4536 20.8 14.2 19.5464 14.2 18C14.2 16.4536 15.4536 15.2 17 15.2C18.5464 15.2 19.8 16.4536 19.8 18ZM19.8 6C19.8 7.5464 18.5464 8.8 17 8.8C15.4536 8.8 14.2 7.5464 14.2 6C14.2 4.4536 15.4536 3.2 17 3.2C18.5464 3.2 19.8 4.4536 19.8 6ZM9.8 12C9.8 13.5464 8.5464 14.8 7 14.8C5.4536 14.8 4.2 13.5464 4.2 12C4.2 10.4536 5.4536 9.2 7 9.2C8.5464 9.2 9.8 10.4536 9.8 12Z"
+					:fill="primary"
 				/>
 			</svg>
 		</span>
@@ -114,7 +137,7 @@ export default {
 			default: 25,
 			required: false,
 		},
-		inner_size: {
+		innerSize: {
 			type: Number,
 			default: null,
 			required: false,
@@ -140,10 +163,10 @@ export default {
 	}},
 	computed: {
 		span_styles() {
-			if (this.inner_size) {
+			if (this.innerSize) {
 				return {
-					"width": `${this.inner_size}px`,
-					"height": `${this.inner_size}px`,
+					"width": `${this.innerSize}px`,
+					"height": `${this.innerSize}px`,
 				}
 			}
 			let x = Math.floor(this.size * 0.6);

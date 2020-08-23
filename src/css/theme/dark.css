@@ -23,7 +23,7 @@
 	--card-text: #ffffff80;
 
 	--on-card-colour: #4c4c4c;
-	--on-card-text: var(--spotify-green);
+	--on-card-text: var(--accent2);
 
 	--modal-container-background: #0e0f10eb;
 	--modal-background: var(--card-colour);
@@ -38,6 +38,7 @@
 	--input-text: var(--spotify-green);
 	--input-active-border: var(--accent2);
 
+	--button-hover-background: var(--accent2);
 	--button-background: var(--spotify-green);
 	--button-disabled-background: #09682a;
 	--button-text: var(--spotify-black);
@@ -60,4 +61,10 @@
 	--scrollbar-background: #0f0f0f;
 	--scrollbar-handle: #4d4d4d;
 	--scrollbar-handle-hover: #5e5e5e;
+
+	--card-bottom-row-text-colour: var(--accent2);
+	--card-bottom-row-background: var(--on-card-colour);
+	--card-bottom-row-hover-background: #414141;
+	--card-bottom-row-divider-colour: #000000;
+	--card-bottom-row-icon-colour: var(--card-bottom-row-text-colour);
 }

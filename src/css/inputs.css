@@ -8,7 +8,10 @@ button {
 	font-size: larger;
 	outline: none;
 }
-button:hover { cursor: pointer; }
+button:hover {
+	background-color: var(--button-hover-background);
+	cursor: pointer;
+}
 button[disabled] {
 	background-color: var(--button-disabled-background);
 	color: var(--button-disabled-text);
