@@ -54,20 +54,27 @@
 			:track="item"
 			@close="show_track_info = false"
 		/>
+		<Sharing
+			v-if="show_share_modal"
+			:track="item"
+			@close="show_share_modal = false"
+		/>
 	</div>
 </template>
 
 <script>
 // Import Components
 import Icon from "../Icon";
-import PopularityModal from "../modals/PopularityInfo.vue";
-import DetailedTrackModal from "../modals/DetailedTrack.vue";
+import ShareModal from "../modals/ShareTrack";
+import PopularityModal from "../modals/PopularityInfo";
+import DetailedTrackModal from "../modals/DetailedTrack";
 
 export default {
 	name: `TrackCard`,
 	components: {
 		PopularityModal: PopularityModal,
 		TrackInfo: DetailedTrackModal,
+		Sharing: ShareModal,
 		icon: Icon,
 	},
 	props: {
@@ -81,6 +88,7 @@ export default {
 		popularity_tooltip: `Song Popularity`,
 		show_pop_modal: false,
 		show_track_info: false,
+		show_share_modal: false,
 	}},
 	computed: {
 		duration() {
