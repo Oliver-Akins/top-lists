@@ -1,4 +1,4 @@
-<template id="pop-modal">
+<template>
 	<transition name="fade" @after-enter="content = true">
 		<div
 			v-if="container"
@@ -7,16 +7,26 @@
 		>
 			<transition name="burst" @after-leave="$emit('close')">
 				<div v-if="content" class="modal">
-					<h2 class="center">How is Popularity Calculated?</h2>
-					<p class="center">
-						Popularity is a value between 0 and 100 that is calculated by Spotify based on how many plays the song/artist has recieved and how recent those plays are.
-					</p>
-					<p class="center">
-						This means that an artist/song that has had 100 plays today will have a higher popularity than a song/artist that has 100 from a month ago.
-					</p>
-					<p class="center">
-						This number is not updated in real time so refreshing the page will not reflect it's absolute accurate value.
-					</p>
+					<h2 class="center">Track Sharing</h2>
+					<div class="share-buttons">
+						<button
+							@click="copy_text(track.external_urls.spotify)"
+						>
+							Copy Track Link
+						</button>
+						<button
+							@click="copy_text(track.album.external_urls.spotify)"
+						>
+							Copy Album Link
+						</button>
+						<button
+							v-for="artist in track.artists"
+							:key="artist.uri"
+							@click="copy_text(artist.external_urls.spotify)"
+						>
+							Copy {{ artist.name }}'s Link
+						</button>
+					</div>
 				</div>
 			</transition>
 		</div>
@@ -25,16 +35,23 @@
 
 <script>
 export default {
-	name: `PopularityModal`,
+	name: `ShareTrack`,
+	props: {
+		track: {
+			type: Object,
+			required: true,
+		},
+	},
 	data() {return {
-		container: false,
 		content: false,
+		container: false,
 	}},
+	computed: {},
 	mounted() {
 		this.$nextTick(function() {
 			this.container = true;
 		});
-	},
+	}
 }
 </script>
 
@@ -55,10 +72,21 @@ export default {
 .modal {
 	background-color: var(--modal-background);
 	border-radius: var(--corner-rounding);
+	padding: 0 15px 15px 15px;
 	text-align: center;
 	max-height: 85%;
-	padding: 0 15px;
 	z-index: 11;
+	width: 90%;
+}
+
+.share-buttons {
+	flex-direction: column;
+	align-items: center;
+	display: flex;
+}
+
+.share-buttons > button {
+	margin-bottom: 10px;
 	width: 90%;
 }
 
@@ -66,6 +94,9 @@ export default {
 	.modal {
 		width: 50%;
 		max-height: 75%;
+	}
+	.share-buttons > button {
+		width: 64%;
 	}
 }
 </style>

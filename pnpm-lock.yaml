@@ -1,5 +1,6 @@
 dependencies:
   axios: 0.19.2
+  clipboard-polyfill: 3.0.1
   core-js: 3.6.5
   v-tooltip: 2.0.3_vue@2.6.11
   vue: 2.6.11
@@ -2475,6 +2476,10 @@ packages:
       node: '>= 10'
     resolution:
       integrity: sha512-FxqpkPPwu1HjuN93Omfm4h8uIanXofW0RxVEW3k5RKx+mJJYSthzNhp32Kzxxy3YAEZ/Dc/EWN1vZRY0+kOhbw==
+  /clipboard-polyfill/3.0.1:
+    dev: false
+    resolution:
+      integrity: sha512-R/uxBa8apxLJArzpFpuTLqavUcnEX8bezZKSuqkwz7Kny2BmxyKDslYGdrKiasKuD+mU1noF7Lkt/p5pyDqFoQ==
   /clipboardy/2.3.0:
     dependencies:
       arch: 2.1.2
@@ -8827,6 +8832,7 @@ specifiers:
   '@vue/cli-service': ~4.4.0
   axios: ^0.19.2
   babel-eslint: ^10.1.0
+  clipboard-polyfill: ^3.0.1
   core-js: ^3.6.5
   eslint: ^6.7.2
   eslint-plugin-vue: ^6.2.2

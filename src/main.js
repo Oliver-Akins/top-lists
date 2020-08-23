@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import VTooltip from 'v-tooltip';
+import * as clipboard from 'clipboard-polyfill/text';
 import TextareaAutosize from 'vue-textarea-autosize';
 import VueEllipseProgress from 'vue-ellipse-progress';
 import App from './App.vue';
@@ -44,6 +45,7 @@ Vue.mixin({
 				window.location.href = this.home_page;
 			};
 		},
+		copy_text: clipboard.writeText,
 	},
 });
 
