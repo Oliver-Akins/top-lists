@@ -1,5 +1,5 @@
 <template>
-	<div class="card" @click="show_track_info = true">
+	<div class="card">
 		<div class="image">
 			<img
 				v-if="item.album.images.length !== 0"
@@ -22,25 +22,36 @@
 			</div>
 		</div>
 		<div class="bottom-bar">
-			<div class="popularity">
+			<button
+				class="popularity"
+				@click="show_pop_modal = true"
+			>
 				{{ item.popularity }}
-			</div>
-			<div class="share">
+			</button>
+			<button
+				class="share"
+				name="Share"
+				@click="show_share_modal = true"
+			>
 				<icon
 					type="share"
-					:size="25"
-					:inner-size="25"
+					:size="22"
+					:inner-size="22"
 					:primary="css_var('--card-bottom-row-icon-colour')"
 				/>
-			</div>
-			<div class="information">
+			</button>
+			<button
+				class="information"
+				name="Track Information"
+				@click="show_track_info = true"
+			>
 				<icon
 					type="info"
-					:size="25"
-					:inner-size="25"
+					:size="22"
+					:inner-size="22"
 					:primary="css_var('--card-bottom-row-icon-colour')"
 				/>
-			</div>
+			</button>
 			<div class="duration">
 				{{ duration }}
 			</div>
@@ -142,7 +153,7 @@ img {
 .track-info {
 	justify-content: center;
 	flex-direction: column;
-	margin-bottom: 1.25em;
+	margin-bottom: 25px;
 	display: flex;
 	height: 100%;
 }
@@ -163,40 +174,66 @@ img {
 	color: var(--card-bottom-row-text-colour);
 	justify-content: space-between;
 	position: absolute;
-	padding-right: 5%;
-	padding-left: 5%;
 	display: flex;
-	width: 90%;
+	width: 100%;
 	bottom: 0;
 }
+.bottom-bar > button {
+	background-color: var(--card-bottom-row-background);
+	color: var(--card-bottom-row-text-colour);
+	font-size: initial;
+	padding: 0;
+}
+
+
+.popularity { cursor: pointer; }
+.popularity:hover { background-color: var(--card-bottom-row-hover-background); }
+
+.information, .share {
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	display: flex;
+}
+.information:hover, .share:hover {
+	background-color: var(--card-bottom-row-hover-background);
+}
+
 
 /* Setting the growth and alignments of the bottom bar buttons */
-.bottom-bar > div {
+.bottom-bar > * {
 	border-color: var(--card-bottom-row-divider-colour);
 	padding-bottom: 2px;
 	padding-top: 2px;
 }
 .bottom-bar > :nth-child(1) {
+	border-radius: 0 0 0 var(--corner-rounding);
 	border-right-style: solid;
-	border-width: 2px;
+	border-right-width: 2px;
+	padding-left: 5%;
+	text-align: left;
 	flex-grow: 1;
 }
 .bottom-bar > :nth-child(2) {
+	border-radius: 0;
 	border-right-style: solid;
+	border-right-width: 1px;
 	text-align: center;
-	border-width: 1px;
 	flex-grow: 2;
 }
 .bottom-bar > :nth-child(3) {
+	border-radius: 0;
 	border-left-style: solid;
+	border-left-width: 1px;
 	text-align: center;
-	border-width: 1px;
 	flex-grow: 2;
 }
 .bottom-bar > :nth-child(4) {
+	border-radius: 0 0 var(--corner-rounding) 0;
 	border-left-style: solid;
+	border-left-width: 2px;
+	padding-right: 5%;
 	text-align: right;
-	border-width: 2px;
 	flex-grow: 1;
 }
 
