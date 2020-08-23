@@ -24,6 +24,7 @@
 		<div class="bottom-bar">
 			<button
 				class="popularity"
+				v-tooltip="popularity_tooltip"
 				@click="show_pop_modal = true"
 			>
 				{{ item.popularity }}
@@ -31,6 +32,7 @@
 			<button
 				class="share"
 				name="Share"
+				v-tooltip="share_tooltip"
 				@click="show_share_modal = true"
 			>
 				<icon
@@ -43,6 +45,7 @@
 			<button
 				class="information"
 				name="Track Information"
+				v-tooltip="info_tooltip"
 				@click="show_track_info = true"
 			>
 				<icon
@@ -52,7 +55,10 @@
 					:primary="css_var('--card-bottom-row-icon-colour')"
 				/>
 			</button>
-			<div class="duration">
+			<div
+				class="duration"
+				v-tooltip="duration_tooltip"
+			>
 				{{ duration }}
 			</div>
 		</div>
@@ -97,6 +103,8 @@ export default {
 	data() { return {
 		duration_tooltip: `Song Duration`,
 		popularity_tooltip: `Song Popularity`,
+		info_tooltip: `Audio Features`,
+		share_tooltip: `Share`,
 		show_pop_modal: false,
 		show_track_info: false,
 		show_share_modal: false,
