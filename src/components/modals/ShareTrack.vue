@@ -87,13 +87,16 @@ export default {
 
 .share-buttons > button {
 	margin-bottom: 10px;
-	width: 64%;
+	width: 90%;
 }
 
 @media only screen and (min-width: 768px) {
 	.modal {
 		width: 50%;
 		max-height: 75%;
+	}
+	.share-buttons > button {
+		width: 64%;
 	}
 }
 </style>
