@@ -9,12 +9,12 @@ dependencies:
 devDependencies:
   '@vue/cli-plugin-babel': 4.4.6_a17f8753fefa6d1bd7cb7a980cc59ef3
   '@vue/cli-plugin-eslint': 4.4.6_30950b7652c540e7653a93d80bb88e74
-  '@vue/cli-service': 4.4.6_80d380958322054484b2df65bedb5db4
+  '@vue/cli-service': 4.4.6_vue-template-compiler@2.6.11
   babel-eslint: 10.1.0_eslint@6.8.0
   eslint: 6.8.0
   eslint-plugin-vue: 6.2.2_eslint@6.8.0
-  vue-template-compiler: 2.6.12
-lockfileVersion: 5.1
+  vue-template-compiler: 2.6.11
+lockfileVersion: 5.2
 packages:
   /@babel/code-frame/7.10.4:
     dependencies:
@@ -1323,7 +1323,6 @@ packages:
       node: '>=8'
     hasBin: true
     peerDependencies:
-      '@vue/cli-service': '*'
       less-loader: '*'
       pug-plain-loader: '*'
       raw-loader: '*'
@@ -8670,7 +8669,6 @@ packages:
       node: '>=6.11.5'
     hasBin: true
     peerDependencies:
-      webpack: '*'
       webpack-cli: '*'
       webpack-command: '*'
     peerDependenciesMeta:

@@ -62,7 +62,7 @@ export default {
 
 <style>
 @import "./css/transitions.css";
-@import "./css/theme/dark.css";
+@import "./css/theme/halloween.css";
 @import "./css/scrollbar.css";
 @import "./css/tooltips.css";
 @import "./css/inputs.css";

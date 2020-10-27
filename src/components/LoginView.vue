@@ -75,7 +75,7 @@ export default {
 .card {
 	border-radius: var(--corner-rounding);
 	background-color: var(--card-colour);
-	color: var(--spotify-green);
+	color: var(--card-text);
 	text-align: center;
 	padding: 15px;
 	width: 90%;
