@@ -212,10 +212,11 @@ export default {
 }
 
 #error {
+	background-color: var(--error-background);
 	border-radius: var(--corner-rounding);
-	border-color: var(--error);
+	border-color: var(--error-accent);
+	color: var(--error-text);
 	border-style: solid;
-	color: var(--error);
 	text-align: center;
 	border-width: 2px;
 	padding: 10px;
