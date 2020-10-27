@@ -162,6 +162,7 @@ export default {
 	background-color: var(--modal-background);
 	border-radius: var(--corner-rounding);
 	padding: 0 15px 15px 15px;
+	color: var(--modal-text);
 	overflow-y: auto;
 	max-height: 85%;
 	z-index: 11;
