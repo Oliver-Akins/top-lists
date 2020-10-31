@@ -57,11 +57,17 @@ export default {
 			{
 				name: `Halloween`,
 				filename: `halloween`,
-				description: `This exlusive theme only shows up around Halloween, make sure to use it while you can!`,
+				description: `This elusive theme only shows up around Halloween, make sure to use it while you can!`,
 				show() {
 					let date = new Date();
 					return date.getMonth() == 9;
 				},
+			},
+			{
+				name: `High Contrast (Dark)`,
+				filename: `dark-high-contrast`,
+				description: `This theme is designed to be as high contrast as possible for those who need it.`,
+				show() { return true },
 			}
 		]
 	}},

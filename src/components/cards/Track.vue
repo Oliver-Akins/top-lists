@@ -138,12 +138,14 @@ export default {
 
 <style scoped>
 .card {
+	border-color: var(--card-border-colour);
+	border-style: var(--card-border-style);
+	border-width: var(--card-border-width);
 	border-radius: var(--corner-rounding);
 	background-color: var(--card-colour);
 	color: var(--card-text);
 	flex-direction: column;
 	align-items: center;
-	border-style: none;
 	position: relative;
 	margin: 5px auto;
 	display: flex;

@@ -19,6 +19,9 @@
 	--background: #23272A;
 	--background-text: var(--spotify-white);
 
+	--card-border-colour: transparent;
+	--card-border-style: none;
+	--card-border-width: 0px;
 	--card-colour: #2C2F33;
 	--card-text: #ffffff80;
 
