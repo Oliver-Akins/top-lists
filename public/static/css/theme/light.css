@@ -1,0 +1,73 @@
+:root {
+	--spotify-green: #1DB954;
+	--spotify-white: #FFFFFF;
+	--spotify-black: #000000;
+
+	--accent1: #7289da;
+	--accent2: #00aa00;
+
+	--error: #ff0000;
+	--error-background: #ff00005d;
+	--error-text: #FFFFFF;
+	--error-accent: var(--error);
+
+	--success: var(--accent2);
+	--success-background: #00aa002f;
+	--success-text: var(--card-text);
+	--success-accent: #00aa00;
+
+	--background: white;
+	--background-text: dimgray;
+
+	--card-colour: #dddddd;
+	--card-text: var(--background-text);
+
+	--on-card-colour: #b1afaf;
+	--on-card-text: var(--accent2);
+
+	--modal-container-background: #ffffffb7;
+	--modal-background: var(--card-colour);
+	--modal-close-button: var(--card-text);
+	--modal-text: var(--card-text);
+
+	--fonts: 'Open Sans', sans-serif;
+
+	--corner-rounding: 7px;
+
+	--input-background: white;
+	--input-text: var(--card-text);
+	--input-active-border: var(--accent1);
+
+	--button-background: #aeaeae;
+	--button-hover-background: #939393;
+	--button-disabled-background: #a6a6a6;
+	--button-text: white;
+	--button-disabled-text: #bcbcbc;
+
+	--textarea-background: white;
+	--textarea-text-colour: var(--card-text);
+	--textarea-border-colour: var(--accent1);
+
+	--missing-picture-background: var(--background);
+	--missing-picture-foreground: var(--accent1);
+
+	--tooltip-colour: #858585;
+	--tooltip-text: white;
+
+	--percent-filled: var(--accent2);
+	--percent-empty: var(--on-card-colour);
+	--percent-text: var(--on-card-text);
+
+	--scrollbar-background: #0f0f0f;
+	--scrollbar-handle: #4d4d4d;
+	--scrollbar-handle-hover: #5e5e5e;
+
+	--card-bottom-row-text-colour: black;
+	--card-bottom-row-background: #b1afaf;
+	--card-bottom-row-hover-background: #8d8d8d;
+	--card-bottom-row-divider-colour: #000000;
+	--card-bottom-row-icon-colour: var(--card-bottom-row-text-colour);
+
+	--icon-primary: var(--accent2);
+	--icon-secondary: var(--accent1);
+}

@@ -15,7 +15,7 @@
 				<Icon
 					type="palette"
 					:size="30"
-					:innerSize="30"
+					:inner-size="30"
 					primary="--button-text"
 				/>
 			</button>
