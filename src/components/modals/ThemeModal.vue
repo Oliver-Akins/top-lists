@@ -1,4 +1,4 @@
-<template id="pop-modal">
+<template id="theme-modal">
 	<transition name="fade" @after-enter="content = true">
 		<div
 			v-if="container"
@@ -8,6 +8,25 @@
 			<transition name="burst" @after-leave="$emit('close')">
 				<div v-if="content" class="modal">
 					<h2 class="center">Available Themes</h2>
+					<div
+						v-for="theme of available_themes"
+						:key="theme.filename"
+						class="theme-card"
+						@click.stop="chosen_theme = theme.filename"
+					>
+						<h3>
+							<input
+								:id="'select_theme' + theme.filename"
+								v-model="chosen_theme"
+								type="radio"
+								:value="theme.filename"
+							>
+							<label :for="'select_theme' + theme.filename">{{ theme.name }}</label>
+						</h3>
+						<p>
+							{{ theme.description }}
+						</p>
+					</div>
 				</div>
 			</transition>
 		</div>
@@ -20,11 +39,55 @@ export default {
 	data() {return {
 		container: false,
 		content: false,
+		chosen_theme: `dark`,
+		default_theme: `dark`,
+		themes: [
+			{
+				name: `Dark`,
+				filename: `dark`,
+				description: `The default theme of the website, this uses darker background colours with lighter coloured accents.`,
+				show() { return true },
+			},
+			{
+				name: `Light`,
+				filename: `light`,
+				description: `A light theme for the website, this uses lighter background colours with darker accent colours.`,
+				show() { return false },
+			},
+			{
+				name: `Halloween`,
+				filename: `halloween`,
+				description: `This exlusive theme only shows up around Halloween, make sure to use it while you can!`,
+				show() {
+					let date = new Date();
+					return date.getMonth() == 9;
+				},
+			}
+		]
 	}},
 	mounted() {
+		this.chosen_theme = localStorage.getItem(`tl-theme`) || this.default_theme;
 		this.$nextTick(function() {
 			this.container = true;
 		});
+	},
+	computed: {
+		available_themes() {
+			let themes = [];
+
+			for (var theme of this.themes) {
+				if (theme.show()) {
+					themes.push(theme);
+				};
+			};
+
+			return themes;
+		},
+	},
+	watch: {
+		chosen_theme(val) {
+			document.getElementById(`theme`).href = ``
+		}
 	},
 }
 </script>
