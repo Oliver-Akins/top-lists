@@ -19,6 +19,9 @@
 	--background: white;
 	--background-text: dimgray;
 
+	--card-border-colour: transparent;
+	--card-border-style: none;
+	--card-border-width: 0px;
 	--card-colour: #dddddd;
 	--card-text: var(--background-text);
 
