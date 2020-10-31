@@ -49,7 +49,7 @@
 	--textarea-border-colour: var(--accent1);
 
 	--missing-picture-background: var(--on-card-colour);
-	--missing-picture-foreground: var(--accent2);
+	--missing-picture-foreground: white;
 
 	--tooltip-colour: var(--spotify-black);
 	--tooltip-text: orange;
@@ -67,4 +67,7 @@
 	--card-bottom-row-hover-background: #9e5700;
 	--card-bottom-row-divider-colour: white;
 	--card-bottom-row-icon-colour: white;
+
+	--icon-primary: var(--accent2);
+	--icon-secondary: var(--accent1);
 }

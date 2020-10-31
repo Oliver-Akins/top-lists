@@ -67,4 +67,7 @@
 	--card-bottom-row-hover-background: #414141;
 	--card-bottom-row-divider-colour: #000000;
 	--card-bottom-row-icon-colour: var(--card-bottom-row-text-colour);
+
+	--icon-primary: var(--accent2);
+	--icon-secondary: var(--accent1);
 }
