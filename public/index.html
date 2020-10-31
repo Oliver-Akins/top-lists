@@ -26,7 +26,8 @@
 	<link href="" id="theme" rel="stylesheet">
 
 	<script>
-		var theme = localStorage.getItem(`tl-theme`) || `dark`;
+		var default_theme = `dark`
+		var theme = localStorage.getItem(`tl-theme`) || default_theme;
 		document.getElementById(`theme`).href = '/static/css/theme/' + theme + '.css';
 	</script>
 </head>
