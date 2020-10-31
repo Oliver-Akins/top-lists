@@ -23,6 +23,12 @@
 
 	<!-- Stylesheets -->
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap" rel="stylesheet">
+	<link href="" id="theme" rel="stylesheet">
+
+	<script>
+		var theme = localStorage.getItem(`tl-theme`) || `dark`;
+		document.getElementById(`theme`).href = '/static/css/theme/' + theme + '.css';
+	</script>
 </head>
 <body>
 	<noscript>
