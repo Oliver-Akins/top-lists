@@ -6,6 +6,13 @@
 			:preview_mode="is_preview"
 			:dev_mode="is_dev"
 		/>
+		<Themes
+			v-if="show_theme_modal"
+			@close="show_theme_modal = false"
+		/>
+		<div id="theme-button">
+			<button @click="show_theme_modal = true">Themes</button>
+		</div>
 	</div>
 </template>
 
@@ -14,6 +21,7 @@
 import "./js/prototypes.js";
 
 // Import components
+import ThemePicker from './components/modals/ThemeModal';
 import LoginCard from './components/LoginView.vue';
 import MainView from './components/MainView.vue';
 
@@ -21,8 +29,12 @@ export default {
 	name: 'App',
 	components: {
 		"LoginCard": LoginCard,
-		"MainView": MainView
+		"MainView": MainView,
+		"Themes": ThemePicker,
 	},
+	data() {return {
+		show_theme_modal: false
+	}},
 	computed: {
 		is_dev() {
 			let params = new URLSearchParams(window.location.search.slice(1));
@@ -62,7 +74,6 @@ export default {
 
 <style>
 @import "./css/transitions.css";
-@import "./css/theme/halloween.css";
 @import "./css/scrollbar.css";
 @import "./css/tooltips.css";
 @import "./css/inputs.css";
@@ -80,5 +91,12 @@ html, body, .maximize_size {
 body {
 	background-color: var(--background);
 	color: var(--background-text);
+}
+
+#theme-button {
+	position: absolute;
+	display: block;
+	bottom: 0;
+	right: 0;
 }
 </style>
