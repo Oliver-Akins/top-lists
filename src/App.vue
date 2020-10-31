@@ -11,7 +11,14 @@
 			@close="show_theme_modal = false"
 		/>
 		<div id="theme-button">
-			<button @click="show_theme_modal = true">Themes</button>
+			<button @click="show_theme_modal = true">
+				<Icon
+					type="palette"
+					:size="30"
+					:innerSize="30"
+					primary="--button-text"
+				/>
+			</button>
 		</div>
 	</div>
 </template>
@@ -24,6 +31,7 @@ import "./js/prototypes.js";
 import ThemePicker from './components/modals/ThemeModal';
 import LoginCard from './components/LoginView.vue';
 import MainView from './components/MainView.vue';
+import Icon from './components/Icon.vue';
 
 export default {
 	name: 'App',
@@ -31,6 +39,7 @@ export default {
 		"LoginCard": LoginCard,
 		"MainView": MainView,
 		"Themes": ThemePicker,
+		"Icon": Icon,
 	},
 	data() {return {
 		show_theme_modal: false
@@ -96,7 +105,10 @@ body {
 #theme-button {
 	position: absolute;
 	display: block;
-	bottom: 0;
-	right: 0;
+	bottom: 5px;
+	right: 5px;
+}
+#theme-button > button {
+	padding: 5px;
 }
 </style>
