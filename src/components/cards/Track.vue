@@ -11,8 +11,8 @@
 				type="notes"
 				:size="200"
 				:border="100"
-				:primary="css_var('--missing-picture-foreground')"
-				:background="css_var('--missing-picture-background')"
+				:primary="'--missing-picture-foreground'"
+				:background="'--missing-picture-background'"
 			/>
 		</div>
 		<div class="track-info">
@@ -23,41 +23,41 @@
 		</div>
 		<div class="bottom-bar">
 			<button
-				class="popularity"
 				v-tooltip="popularity_tooltip"
+				class="popularity"
 				@click="show_pop_modal = true"
 			>
 				{{ item.popularity }}
 			</button>
 			<button
+				v-tooltip="share_tooltip"
 				class="share"
 				name="Share"
-				v-tooltip="share_tooltip"
 				@click="show_share_modal = true"
 			>
 				<icon
 					type="share"
 					:size="22"
 					:inner-size="22"
-					:primary="css_var('--card-bottom-row-icon-colour')"
+					:primary="'--card-bottom-row-icon-colour'"
 				/>
 			</button>
 			<button
+				v-tooltip="info_tooltip"
 				class="information"
 				name="Track Information"
-				v-tooltip="info_tooltip"
 				@click="show_track_info = true"
 			>
 				<icon
 					type="info"
 					:size="22"
 					:inner-size="22"
-					:primary="css_var('--card-bottom-row-icon-colour')"
+					:primary="'--card-bottom-row-icon-colour'"
 				/>
 			</button>
 			<div
-				class="duration"
 				v-tooltip="duration_tooltip"
+				class="duration"
 			>
 				{{ duration }}
 			</div>

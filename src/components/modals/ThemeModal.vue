@@ -86,7 +86,8 @@ export default {
 	},
 	watch: {
 		chosen_theme(val) {
-			document.getElementById(`theme`).href = ``
+			localStorage.setItem(`tl-theme`, val);
+			document.getElementById(`theme`).href = `/static/css/theme/${val}.css`;
 		}
 	},
 }

@@ -11,8 +11,8 @@
 				type="notes"
 				:size="230"
 				:border="115"
-				:primary="css_var('--missing-picture-foreground')"
-				:background="css_var('--missing-picture-background')"
+				:primary="'--missing-picture-foreground'"
+				:background="'--missing-picture-background'"
 			/>
 		</div>
 		<div class="artist-info">
