@@ -52,7 +52,7 @@ export default {
 				name: `Light`,
 				filename: `light`,
 				description: `A light theme for the website, this uses lighter background colours with darker accent colours.`,
-				show() { return false },
+				show() { return true },
 			},
 			{
 				name: `Halloween`,
