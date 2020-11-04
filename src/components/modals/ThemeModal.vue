@@ -109,7 +109,7 @@ export default {
 		}
 	},
 	beforeDestroy() {
-		document.body.removeChild(document.body.getElementById(this.style_id));
+		document.body.removeChild(document.getElementById(this.style_id));
 	},
 }
 </script>
