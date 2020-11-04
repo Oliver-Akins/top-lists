@@ -41,6 +41,7 @@ export default {
 		content: false,
 		chosen_theme: `dark`,
 		default_theme: `dark`,
+		style_id: `colour-transition`,
 		themes: [
 			{
 				name: `Dark`,
@@ -73,6 +74,17 @@ export default {
 	}},
 	mounted() {
 		this.chosen_theme = localStorage.getItem(`tl-theme`) || this.default_theme;
+
+		// Add the CSS to the document so that we can transition nicely
+		let colour_transition = document.createElement(`style`);
+		colour_transition.id = this.style_id;
+		colour_transition.innerText=`/* Transition colours for theme changes */
+		* {
+			transition: color .5s;
+			transition: background-color .5s;
+		}`;
+		document.body.appendChild(colour_transition);
+
 		this.$nextTick(function() {
 			this.container = true;
 		});
@@ -95,6 +107,9 @@ export default {
 			localStorage.setItem(`tl-theme`, val);
 			document.getElementById(`theme`).href = `/static/css/theme/${val}.css`;
 		}
+	},
+	beforeDestroy() {
+		document.body.removeChild(document.body.getElementById(this.style_id));
 	},
 }
 </script>
