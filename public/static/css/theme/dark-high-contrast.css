@@ -61,9 +61,9 @@
 	--percent-empty: var(--on-card-colour);
 	--percent-text: var(--on-card-text);
 
-	--scrollbar-background: #0f0f0f;
-	--scrollbar-handle: #4d4d4d;
-	--scrollbar-handle-hover: #5e5e5e;
+	--scrollbar-background: black;
+	--scrollbar-handle: white;
+	--scrollbar-handle-hover: #cecece;
 
 	--card-bottom-row-text-colour: var(--accent2);
 	--card-bottom-row-background: var(--on-card-colour);
