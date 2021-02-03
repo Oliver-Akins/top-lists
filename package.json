@@ -12,7 +12,7 @@
 	},
 	"dependencies": {
 		"axios": "^0.21.1",
-		"clipboard-polyfill": "^3.0.1",
+		"clipboard-polyfill": "^3.0.2",
 		"core-js": "^3.7.0",
 		"v-tooltip": "^2.1.2",
 		"vue": "^2.6.11",
