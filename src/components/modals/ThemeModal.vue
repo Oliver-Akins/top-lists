@@ -131,6 +131,7 @@ export default {
 .modal {
 	background-color: var(--modal-background);
 	border-radius: var(--corner-rounding);
+	color: var(--modal-text);
 	text-align: center;
 	max-height: 85%;
 	padding: 0 15px;
