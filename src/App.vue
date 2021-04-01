@@ -10,12 +10,26 @@
 			v-if="show_theme_modal"
 			@close="show_theme_modal = false"
 		/>
+		<SiteInfo
+			v-if="show_site_info"
+			@close="show_site_info = false"
+		/>
+		<div id="info-button">
+			<button @click.stop="show_site_info = true">
+				<Icon
+					type="info"
+					:size="35"
+					:inner-size="35"
+					primary="--button-text"
+				/>
+			</button>
+		</div>
 		<div id="theme-button">
-			<button @click="show_theme_modal = true">
+			<button @click.stop="show_theme_modal = true">
 				<Icon
 					type="palette"
-					:size="30"
-					:inner-size="30"
+					:size="35"
+					:inner-size="35"
 					primary="--button-text"
 				/>
 			</button>
@@ -28,7 +42,8 @@
 import "./js/prototypes.js";
 
 // Import components
-import ThemePicker from './components/modals/ThemeModal';
+import ThemePicker from './components/modals/ThemeModal.vue';
+import SiteInfo from './components/modals/SiteInfo.vue';
 import LoginCard from './components/LoginView.vue';
 import MainView from './components/MainView.vue';
 import Icon from './components/Icon.vue';
@@ -40,9 +55,11 @@ export default {
 		"MainView": MainView,
 		"Themes": ThemePicker,
 		"Icon": Icon,
+		"SiteInfo": SiteInfo,
 	},
 	data() {return {
-		show_theme_modal: false
+		show_theme_modal: false,
+		show_site_info: false,
 	}},
 	computed: {
 		is_dev() {
@@ -109,6 +126,16 @@ body {
 	right: 5px;
 }
 #theme-button > button {
+	padding: 5px;
+}
+
+#info-button {
+	position: absolute;
+	display: block;
+	bottom: 5px;
+	left: 5px;
+}
+#info-button > button {
 	padding: 5px;
 }
 </style>
