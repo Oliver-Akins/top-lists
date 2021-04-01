@@ -119,6 +119,10 @@ body {
 	color: var(--background-text);
 }
 
+/* Allows for better theming of the anchor text */
+a { color: var(--link); }
+a:visited { color: var(--visited-link); }
+
 #theme-button {
 	position: absolute;
 	display: block;

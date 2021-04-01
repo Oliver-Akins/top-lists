@@ -73,4 +73,7 @@
 
 	--icon-primary: var(--accent2);
 	--icon-secondary: var(--accent1);
+
+	--link: #00bfff;
+	--visited-link: #c700c7;
 }
