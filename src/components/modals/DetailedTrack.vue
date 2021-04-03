@@ -116,7 +116,7 @@ export default {
 			let parts = this.track.album.release_date.split(`-`);
 			switch (this.track.album.release_date_precision) {
 				case `year`:
-					return release[0];
+					return parts[0];
 				case `month`:
 					return `${this.months[parts[1]]}, ${parts[0]}`
 				case `day`:
