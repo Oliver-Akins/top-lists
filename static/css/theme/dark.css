@@ -1,0 +1,79 @@
+:root {
+	--spotify-green: #1DB954;
+	--spotify-white: #FFFFFF;
+	--spotify-black: #000000;
+
+	--accent1: #7289da;
+	--accent2: #00aa00;
+
+	--error: #ff0000;
+	--error-background: #ff00005d;
+	--error-text: #FFFFFF;
+	--error-accent: var(--error);
+
+	--success: var(--accent2);
+	--success-background: #00aa002f;
+	--success-text: var(--card-text);
+	--success-accent: #00aa00;
+
+	--background: #23272A;
+	--background-text: var(--spotify-white);
+
+	--card-border-colour: transparent;
+	--card-border-style: none;
+	--card-border-width: 0px;
+	--card-colour: #2C2F33;
+	--card-text: #ffffff80;
+
+	--on-card-colour: #4c4c4c;
+	--on-card-text: var(--accent2);
+
+	--modal-container-background: #0e0f10eb;
+	--modal-background: var(--card-colour);
+	--modal-close-button: var(--card-text);
+	--modal-text: var(--card-text);
+
+	--fonts: 'Open Sans', sans-serif;
+
+	--corner-rounding: 7px;
+
+	--input-background: var(--spotify-black);
+	--input-text: var(--spotify-green);
+	--input-active-border: var(--accent2);
+
+	--button-hover-background: var(--accent2);
+	--button-background: var(--spotify-green);
+	--button-disabled-background: #09682a;
+	--button-text: var(--spotify-black);
+	--button-disabled-text: var(--spotify-black);
+
+	--textarea-background: var(--spotify-black);
+	--textarea-text-colour: var(--spotify-green);
+	--textarea-border-colour: var(--accent2);
+
+	--missing-picture-background: var(--background);
+	--missing-picture-foreground: var(--accent2);
+
+	--tooltip-colour: #000000;
+	--tooltip-text: var(--spotify-green);
+
+	--percent-filled: var(--accent2);
+	--percent-empty: var(--on-card-colour);
+	--percent-text: var(--on-card-text);
+
+	--scrollbar-background: #0f0f0f;
+	--scrollbar-handle: #4d4d4d;
+	--scrollbar-handle-hover: #5e5e5e;
+
+	--card-bottom-row-text-colour: var(--accent2);
+	--card-bottom-row-background: var(--on-card-colour);
+	--card-bottom-row-hover-background: #414141;
+	--card-bottom-row-divider-colour: #000000;
+	--card-bottom-row-icon-colour: var(--card-bottom-row-text-colour);
+
+	--icon-primary: var(--accent2);
+	--icon-secondary: var(--accent1);
+
+	--link: #00bfff;
+	--visited-link: #c700c7;
+}

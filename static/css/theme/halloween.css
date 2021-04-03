@@ -1,0 +1,79 @@
+:root {
+	--spotify-green: #1DB954;
+	--spotify-white: #FFFFFF;
+	--spotify-black: #000000;
+
+	--accent1: #7289da;
+	--accent2: #00aa00;
+
+	--error: #ff0000;
+	--error-background: #ff00005d;
+	--error-text: white;
+	--error-accent: var(--error);
+
+	--success: var(--accent2);
+	--success-background: #00aa002f;
+	--success-text: var(--card-text);
+	--success-accent: #00aa00;
+
+	--background: #FF8C00;
+	--background-text: var(--spotify-white);
+
+	--card-border-colour: transparent;
+	--card-border-style: none;
+	--card-border-width: 0px;
+	--card-colour: #794200;
+	--card-text: white;
+
+	--on-card-colour: #bd6800;
+	--on-card-text: white;
+
+	--modal-container-background: #0e0f10e0;
+	--modal-background: var(--background);
+	--modal-close-button: black;
+	--modal-text: black;
+
+	--fonts: 'Open Sans', sans-serif;
+
+	--corner-rounding: 7px;
+
+	--input-background: var(--spotify-black);
+	--input-text: orange;
+	--input-active-border: var(--accent1);
+
+	--button-background: #f09e3c;
+	--button-hover-background: #d6923f;
+	--button-disabled-background: #965200;
+	--button-text: var(--spotify-black);
+	--button-disabled-text: var(--spotify-black);
+
+	--textarea-background: var(--spotify-black);
+	--textarea-text-colour: orange;
+	--textarea-border-colour: var(--accent1);
+
+	--missing-picture-background: var(--on-card-colour);
+	--missing-picture-foreground: white;
+
+	--tooltip-colour: var(--spotify-black);
+	--tooltip-text: orange;
+
+	--percent-filled: black;
+	--percent-empty: white;
+	--percent-text: black;
+
+	--scrollbar-background: #6d3e00;
+	--scrollbar-handle: #e06500;
+	--scrollbar-handle-hover: #e06500c2;
+
+	--card-bottom-row-text-colour: var(--on-card-text);
+	--card-bottom-row-background: var(--on-card-colour);
+	--card-bottom-row-hover-background: #9e5700;
+	--card-bottom-row-divider-colour: white;
+	--card-bottom-row-icon-colour: white;
+
+	--icon-primary: var(--accent2);
+	--icon-secondary: var(--accent1);
+
+	--link: #830083;
+	--visited-link: #000000;
+}
