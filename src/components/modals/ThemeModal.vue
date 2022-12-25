@@ -14,6 +14,7 @@
 						class="theme-card"
 						@click.stop="chosen_theme = theme.filename"
 					>
+						<hr>
 						<h3>
 							<input
 								:id="'select_theme' + theme.filename"
@@ -69,6 +70,15 @@ export default {
 				filename: `dark-high-contrast`,
 				description: `This theme is designed to be as high contrast as possible for those who need it.`,
 				show() { return true },
+			},
+			{
+				name: `Forest`,
+				filename: `forest`,
+				description: `Take a stroll through a nice summer-y forest while browsing your music.`,
+				show() {
+					let date = new Date();
+					return 5 <= date.getMonth() && date.getMonth() <= 8
+				}
 			}
 		]
 	}},
